@@ -29,7 +29,7 @@ export function SiteHeader() {
   }, [menuOpen]);
 
   return (
-    <nav className="fixed inset-x-0 top-0 z-50 h-20 border-b border-white/[0.06] bg-[rgba(7,9,20,.88)] backdrop-blur-[14px] max-[820px]:h-[68px]">
+    <nav className="fixed inset-x-0 top-0 z-50 h-20 border-b border-black/[0.06] bg-[rgba(247,248,252,.88)] backdrop-blur-[14px] max-[820px]:h-[68px]">
       <div className={cx(container, "relative flex h-full items-center justify-between")}>
         <Brand />
 
@@ -39,7 +39,7 @@ export function SiteHeader() {
             <Link
               key={item.href}
               href={item.href}
-              className="text-[13px] font-semibold text-[#b0b5d0] transition-colors duration-200 hover:text-white"
+              className="text-[13px] font-semibold text-[#5c6478] transition-colors duration-200 hover:text-[#121528]"
             >
               {item.label}
             </Link>
@@ -49,7 +49,7 @@ export function SiteHeader() {
         <div className="flex items-center gap-[13px] max-[820px]:hidden">
           <a
             href={portalLoginUrl}
-            className="px-2.5 py-2.5 text-[13px] font-[650] text-[#c8cbdd] transition-colors hover:text-white"
+            className="px-2.5 py-2.5 text-[13px] font-[650] text-[#5c6478] transition-colors hover:text-[#121528]"
           >
             Log in
           </a>
@@ -60,7 +60,7 @@ export function SiteHeader() {
 
         <button
           type="button"
-          className="hidden max-[820px]:absolute max-[820px]:right-0 max-[820px]:grid max-[820px]:h-[39px] max-[820px]:w-[39px] max-[820px]:place-items-center max-[820px]:rounded-[10px] max-[820px]:border max-[820px]:border-border max-[820px]:bg-surface max-[820px]:text-[#d5d8e9]"
+          className="hidden max-[820px]:absolute max-[820px]:right-0 max-[820px]:grid max-[820px]:h-[39px] max-[820px]:w-[39px] max-[820px]:place-items-center max-[820px]:rounded-[10px] max-[820px]:border max-[820px]:border-border max-[820px]:bg-surface max-[820px]:text-[#2a3148]"
           onClick={() => setMenuOpen((open) => !open)}
           aria-label="Toggle menu"
           aria-expanded={menuOpen}
@@ -70,7 +70,7 @@ export function SiteHeader() {
 
         <div
           className={cx(
-            "absolute left-0 right-0 top-[75px] z-30 origin-top rounded-[14px] border border-border bg-[rgba(13,16,32,.98)] p-3 shadow-[0_20px_50px_#03040b]",
+            "absolute left-0 right-0 top-[75px] z-30 origin-top rounded-[14px] border border-border bg-white p-3 shadow-[0_20px_50px_rgba(18,21,40,.12)]",
             "transition-[opacity,transform] duration-250 ease-[cubic-bezier(0.16,1,0.3,1)]",
             "hidden max-[820px]:block",
             menuOpen
@@ -84,7 +84,7 @@ export function SiteHeader() {
               key={item.href}
               href={item.href}
               onClick={() => setMenuOpen(false)}
-              className="block px-[13px] py-[13px] text-[13px] font-semibold text-[#b0b5d0] transition-colors hover:text-white"
+              className="block px-[13px] py-[13px] text-[13px] font-semibold text-[#5c6478] transition-colors hover:text-[#121528]"
             >
               {item.label}
             </Link>
@@ -104,7 +104,7 @@ export function SiteHeader() {
         <button
           type="button"
           aria-label="Close menu"
-          className="fixed inset-0 z-10 hidden border-0 bg-[rgba(2,3,9,.45)] max-[820px]:block"
+          className="fixed inset-0 z-10 hidden border-0 bg-[rgba(18,21,40,.25)] max-[820px]:block"
           onClick={() => setMenuOpen(false)}
         />
       )}

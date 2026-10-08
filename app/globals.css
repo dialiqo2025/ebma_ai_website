@@ -1,19 +1,25 @@
 @import "tailwindcss";
 
+/*
+ * EBMA marketing theme — classic logo indigo → violet.
+ * Brand: #5B4FE9 → #9B5CF6 → #B978FF on warm ivory surfaces (light-only site).
+ * Product accents (e.g. STT cyan) stay hardcoded in components where needed.
+ */
 @theme {
-  --color-bg: #0a0d1a;
-  --color-bg-deep: #070914;
-  --color-surface: #141a30;
-  --color-surface-2: #1d2444;
-  --color-border: #2b3358;
-  --color-text: #f2f3fb;
-  --color-muted: #9299bd;
-  --color-faint: #5f678e;
+  --color-bg: #f7f4ef;
+  --color-bg-deep: #f1ede7;
+  --color-surface: #fffefa;
+  --color-surface-2: #f1ede7;
+  --color-border: #e0dbd3;
+  --color-text: #242321;
+  --color-muted: #625f5a;
+  --color-faint: #827c74;
   --color-brand-a: #5b4fe9;
   --color-brand-b: #9b5cf6;
-  --color-cyan: #38bdf8;
-  --color-success: #34d399;
-  --color-danger: #f1466b;
+  --color-brand-c: #b978ff;
+  --color-cyan: #b978ff;
+  --color-success: #147449;
+  --color-danger: #b72143;
   --font-sans: var(--font-body), Arial, Helvetica, sans-serif;
   --font-heading: var(--font-display), ui-sans-serif, system-ui, sans-serif;
   --max-width-content: 1180px;
@@ -49,6 +55,11 @@
 
   button:disabled {
     cursor: not-allowed;
+  }
+
+  ::selection {
+    color: var(--color-text);
+    background: #f1ede7;
   }
 }
 

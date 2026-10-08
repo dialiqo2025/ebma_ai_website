@@ -91,36 +91,36 @@ export function LlmSampleDemo() {
   };
 
   return (
-    <div className="overflow-hidden rounded-[20px] border border-[#2a3358] bg-[#101426] shadow-[0_30px_70px_rgba(0,0,0,.35)]">
-      <div className="flex flex-wrap items-center justify-between gap-3 border-b border-[#262d4d] px-5 py-4">
+    <div className="overflow-hidden rounded-[20px] border border-[#d5dbea] bg-white shadow-[0_20px_50px_rgba(18,21,40,.1)]">
+      <div className="flex flex-wrap items-center justify-between gap-3 border-b border-[#e2e7f2] bg-[#f8fafc] px-5 py-4">
         <div>
-          <p className="text-[12px] font-extrabold uppercase tracking-[0.12em] text-[#ef76ca]">
+          <p className="text-[12px] font-extrabold uppercase tracking-[0.12em] text-[#db2777]">
             Try a sample
           </p>
-          <p className="mt-1 text-[13px] text-[#9aa5b8]">
+          <p className="mt-1 text-[13px] text-[#6b7389]">
             Simulated studio chat · Grounded production LLM in the portal waitlist
           </p>
         </div>
-        <span className="inline-flex items-center gap-1.5 rounded-full border border-[rgba(239,118,202,.28)] bg-[rgba(239,118,202,.08)] px-2.5 py-1 text-[11px] font-semibold text-[#ef76ca]">
+        <span className="inline-flex items-center gap-1.5 rounded-full border border-[rgba(219,39,119,.28)] bg-[rgba(219,39,119,.08)] px-2.5 py-1 text-[11px] font-semibold text-[#db2777]">
           <Sparkles size={12} /> Beta preview
         </span>
       </div>
 
-      <div className="flex flex-wrap gap-2 border-b border-[#262d4d] px-5 py-3">
+      <div className="flex flex-wrap gap-2 border-b border-[#e2e7f2] bg-white px-5 py-3">
         {llmDemoPrompts.map((item) => (
           <button
             key={item.id}
             type="button"
             disabled={busy}
             onClick={() => runPrompt(item.id)}
-            className="rounded-full border border-[#2f3a5c] px-3 py-1.5 text-[12px] font-semibold text-[#aeb6c9] transition hover:border-[#ef76ca]/50 hover:text-white disabled:opacity-50"
+            className="rounded-full border border-[#d5dbea] px-3 py-1.5 text-[12px] font-semibold text-[#5c6478] transition hover:border-[#db2777]/50 hover:bg-[rgba(219,39,119,.06)] hover:text-[#121528] disabled:opacity-50"
           >
             {item.label}
           </button>
         ))}
       </div>
 
-      <div className="max-h-[340px] min-h-[280px] space-y-3 overflow-y-auto px-5 py-4">
+      <div className="max-h-[340px] min-h-[280px] space-y-3 overflow-y-auto bg-[#f8fafc] px-5 py-4">
         {messages.map((message) => (
           <div
             key={message.id}
@@ -130,7 +130,7 @@ export function LlmSampleDemo() {
             )}
           >
             {message.role === "assistant" && (
-              <span className="mt-1 grid h-7 w-7 shrink-0 place-items-center rounded-lg border border-[rgba(239,118,202,.28)] bg-[rgba(239,118,202,.12)] text-[#ef76ca]">
+              <span className="mt-1 grid h-7 w-7 shrink-0 place-items-center rounded-lg border border-[rgba(219,39,119,.28)] bg-[rgba(219,39,119,.1)] text-[#db2777]">
                 <Bot size={14} />
               </span>
             )}
@@ -138,28 +138,28 @@ export function LlmSampleDemo() {
               className={cx(
                 "max-w-[85%] whitespace-pre-wrap rounded-2xl px-3.5 py-2.5 text-[13px] leading-relaxed",
                 message.role === "user"
-                  ? "bg-[#252d4e] text-[#e8eaf4]"
-                  : "border border-[rgba(239,118,202,.2)] bg-[rgba(239,118,202,.1)] text-[#f0e9ff]",
+                  ? "bg-white text-[#121528] ring-1 ring-[#e2e7f2]"
+                  : "border border-[rgba(219,39,119,.2)] bg-[rgba(219,39,119,.08)] text-[#121528]",
               )}
             >
               {message.content || (busy ? "…" : "")}
             </div>
             {message.role === "user" && (
-              <span className="mt-1 grid h-7 w-7 shrink-0 place-items-center rounded-lg border border-[#343d64] bg-[#171c33] text-[#aab0ca]">
+              <span className="mt-1 grid h-7 w-7 shrink-0 place-items-center rounded-lg border border-[#d5dbea] bg-white text-[#6b7389]">
                 <User size={14} />
               </span>
             )}
           </div>
         ))}
         {busy && (
-          <div className="flex items-center gap-2 text-[12px] text-[#8b98ae]">
-            <Loader2 size={13} className="animate-spin text-[#ef76ca]" /> Thinking…
+          <div className="flex items-center gap-2 text-[12px] text-[#8a92a8]">
+            <Loader2 size={13} className="animate-spin text-[#db2777]" /> Thinking…
           </div>
         )}
         <div ref={endRef} />
       </div>
 
-      <div className="border-t border-[#262d4d] px-5 py-4">
+      <div className="border-t border-[#e2e7f2] bg-white px-5 py-4">
         <div className="flex gap-2">
           <input
             value={input}
@@ -168,7 +168,7 @@ export function LlmSampleDemo() {
               if (e.key === "Enter") onSubmit();
             }}
             placeholder="Ask the preview studio…"
-            className="h-11 flex-1 rounded-xl border border-[#2a3552] bg-[#0a1020] px-3.5 text-[13px] text-white outline-none placeholder:text-[#66738d] focus:border-[#ef76ca]/50"
+            className="h-11 flex-1 rounded-xl border border-[#d5dbea] bg-[#f8fafc] px-3.5 text-[13px] text-[#121528] outline-none placeholder:text-[#8a92a8] focus:border-[#db2777]/50"
           />
           <Button
             variant="primary"
@@ -180,7 +180,7 @@ export function LlmSampleDemo() {
           </Button>
         </div>
         <div className="mt-4 flex flex-wrap items-center justify-between gap-3">
-          <p className="text-[12px] text-[#8b98ae]">
+          <p className="text-[12px] text-[#6b7389]">
             Want grounded answers over your transcripts & tools?
           </p>
           <Button variant="primary" href={portalSignupUrl} className="min-h-[38px] text-[12px]">

@@ -114,17 +114,17 @@ export function SttSampleDemo() {
   const shown = active.segments.slice(0, Math.max(visibleCount, 0));
 
   return (
-    <div className="overflow-hidden rounded-[20px] border border-[#2a3358] bg-[#101426] shadow-[0_30px_70px_rgba(0,0,0,.35)]">
-      <div className="flex flex-wrap items-center justify-between gap-3 border-b border-[#262d4d] px-5 py-4">
+    <div className="overflow-hidden rounded-[20px] border border-[#d5dbea] bg-white shadow-[0_20px_50px_rgba(18,21,40,.1)]">
+      <div className="flex flex-wrap items-center justify-between gap-3 border-b border-[#e2e7f2] bg-[#f8fafc] px-5 py-4">
         <div>
-          <p className="text-[12px] font-extrabold uppercase tracking-[0.12em] text-[#38bdf8]">
+          <p className="text-[12px] font-extrabold uppercase tracking-[0.12em] text-[#0284c7]">
             Try a sample
           </p>
-          <p className="mt-1 text-[13px] text-[#9aa5b8]">
+          <p className="mt-1 text-[13px] text-[#6b7389]">
             Browser preview · Full EBMA ASR, diarization & exports in the portal
           </p>
         </div>
-        <div className="flex rounded-full border border-[#2f3a5c] bg-[#0d1224] p-1">
+        <div className="flex rounded-full border border-[#d5dbea] bg-white p-1">
           <button
             type="button"
             onClick={() => {
@@ -135,7 +135,7 @@ export function SttSampleDemo() {
               "rounded-full px-3.5 py-1.5 text-[12px] font-semibold",
               mode === "samples"
                 ? "bg-[linear-gradient(90deg,#3b82f6,#7c3aed)] text-white"
-                : "text-[#9aa5b8]",
+                : "text-[#6b7389]",
             )}
           >
             Samples
@@ -150,7 +150,7 @@ export function SttSampleDemo() {
               "rounded-full px-3.5 py-1.5 text-[12px] font-semibold",
               mode === "mic"
                 ? "bg-[linear-gradient(90deg,#3b82f6,#7c3aed)] text-white"
-                : "text-[#9aa5b8]",
+                : "text-[#6b7389]",
             )}
           >
             Live mic
@@ -160,7 +160,7 @@ export function SttSampleDemo() {
 
       {mode === "samples" ? (
         <div className="grid grid-cols-[220px_1fr] max-[820px]:grid-cols-1">
-          <div className="border-r border-[#262d4d] p-3 max-[820px]:border-r-0 max-[820px]:border-b">
+          <div className="border-r border-[#e2e7f2] p-3 max-[820px]:border-r-0 max-[820px]:border-b">
             {sttDemoSamples.map((sample) => (
               <button
                 key={sample.id}
@@ -169,12 +169,12 @@ export function SttSampleDemo() {
                 className={cx(
                   "mb-1.5 w-full rounded-xl px-3 py-3 text-left transition",
                   activeId === sample.id
-                    ? "bg-[#1a2340] text-white"
-                    : "text-[#aeb6c9] hover:bg-[#151c33]",
+                    ? "bg-[rgba(2,132,199,.1)] text-[#121528] ring-1 ring-[#0284c7]/30"
+                    : "text-[#5c6478] hover:bg-[#eef1f8]",
                 )}
               >
                 <span className="block text-[13px] font-semibold">{sample.title}</span>
-                <span className="mt-1 block text-[11px] text-[#8b98ae]">
+                <span className="mt-1 block text-[11px] text-[#8a92a8]">
                   {sample.language} · {sample.duration}
                 </span>
               </button>
@@ -182,7 +182,7 @@ export function SttSampleDemo() {
           </div>
           <div className="p-5">
             <div className="mb-4 flex flex-wrap items-center justify-between gap-3">
-              <p className="text-[13px] text-[#a8b4c8]">{active.description}</p>
+              <p className="text-[13px] text-[#5c6478]">{active.description}</p>
               <div className="flex gap-2">
                 <Button
                   variant="primary"
@@ -201,29 +201,29 @@ export function SttSampleDemo() {
                 </Button>
               </div>
             </div>
-            <div className="min-h-[220px] rounded-xl border border-[#1d2944] bg-[#0a1020] px-4 py-3">
+            <div className="min-h-[220px] rounded-xl border border-[#e2e7f2] bg-[#f8fafc] px-4 py-3">
               {shown.length === 0 ? (
-                <p className="py-16 text-center text-[13px] text-[#7f8aa5]">
-                  Press <span className="text-slate-300">Run sample</span> to stream a
+                <p className="py-16 text-center text-[13px] text-[#8a92a8]">
+                  Press <span className="font-semibold text-[#121528]">Run sample</span> to stream a
                   canned transcript.
                 </p>
               ) : (
                 shown.map((seg, idx) => (
                   <div
                     key={`${seg.time}-${idx}`}
-                    className="border-b border-[#1a243a] py-3 last:border-b-0"
+                    className="border-b border-[#e2e7f2] py-3 last:border-b-0"
                   >
                     <div className="mb-1.5 flex flex-wrap gap-2">
-                      <span className="rounded-md bg-[#1d4ed8] px-2 py-0.5 text-[11px] font-semibold text-white">
+                      <span className="rounded-md bg-[#0284c7] px-2 py-0.5 text-[11px] font-semibold text-white">
                         {seg.time}
                       </span>
                       {seg.speaker ? (
-                        <span className="rounded-md bg-[#1a2438] px-2 py-0.5 text-[11px] text-[#9aa8bf]">
+                        <span className="rounded-md bg-[#eef1f8] px-2 py-0.5 text-[11px] text-[#6b7389]">
                           {seg.speaker}
                         </span>
                       ) : null}
                     </div>
-                    <p className="text-[16px] leading-relaxed text-white">{seg.text}</p>
+                    <p className="text-[16px] leading-relaxed text-[#121528]">{seg.text}</p>
                   </div>
                 ))
               )}
@@ -233,7 +233,7 @@ export function SttSampleDemo() {
       ) : (
         <div className="p-5">
           <div className="mb-4 flex flex-wrap items-center justify-between gap-3">
-            <p className="text-[13px] text-[#a8b4c8]">
+            <p className="text-[13px] text-[#5c6478]">
               Uses your browser&apos;s speech recognition for a quick feel. Switch to the
               portal for EBMA accuracy, speakers, and exports.
             </p>
@@ -255,16 +255,16 @@ export function SttSampleDemo() {
             </Button>
           </div>
           {!micSupported && (
-            <p className="mb-3 text-[12px] text-[#ef6a82]">
+            <p className="mb-3 text-[12px] text-[#db2777]">
               Live mic preview is best in Chrome or Edge.
             </p>
           )}
-          {micError && <p className="mb-3 text-[12px] text-[#ef6a82]">{micError}</p>}
-          <div className="min-h-[220px] rounded-xl border border-[#1d2944] bg-[#0a1020] px-4 py-4">
+          {micError && <p className="mb-3 text-[12px] text-[#db2777]">{micError}</p>}
+          <div className="min-h-[220px] rounded-xl border border-[#e2e7f2] bg-[#f8fafc] px-4 py-4">
             {liveText ? (
-              <p className="text-[18px] leading-relaxed text-white">{liveText}</p>
+              <p className="text-[18px] leading-relaxed text-[#121528]">{liveText}</p>
             ) : (
-              <p className="py-16 text-center text-[13px] text-[#7f8aa5]">
+              <p className="py-16 text-center text-[13px] text-[#8a92a8]">
                 {listening
                   ? "Listening… speak clearly into your microphone."
                   : "Start listening to capture a live browser transcript."}
@@ -274,8 +274,8 @@ export function SttSampleDemo() {
         </div>
       )}
 
-      <div className="flex flex-wrap items-center justify-between gap-3 border-t border-[#262d4d] px-5 py-4">
-        <p className="text-[12px] text-[#8b98ae]">
+      <div className="flex flex-wrap items-center justify-between gap-3 border-t border-[#e2e7f2] bg-[#f8fafc] px-5 py-4">
+        <p className="text-[12px] text-[#6b7389]">
           Want diarization, SRT/VTT, and production ASR?
         </p>
         <div className="flex flex-wrap gap-2">

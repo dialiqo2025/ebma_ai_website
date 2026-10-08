@@ -55,18 +55,18 @@ export function TtsSampleDemo() {
   };
 
   return (
-    <div className="overflow-hidden rounded-[20px] border border-[#2a3358] bg-[#101426] shadow-[0_30px_70px_rgba(0,0,0,.35)]">
-      <div className="flex flex-wrap items-center justify-between gap-3 border-b border-[#262d4d] px-5 py-4">
+    <div className="overflow-hidden rounded-[20px] border border-[#d5dbea] bg-white shadow-[0_20px_50px_rgba(18,21,40,.1)]">
+      <div className="flex flex-wrap items-center justify-between gap-3 border-b border-[#e2e7f2] bg-[#f8fafc] px-5 py-4">
         <div>
-          <p className="text-[12px] font-extrabold uppercase tracking-[0.12em] text-[#9b5cf6]">
+          <p className="text-[12px] font-extrabold uppercase tracking-[0.12em] text-[#7c3aed]">
             Try a sample
           </p>
-          <p className="mt-1 text-[13px] text-[#9aa5b8]">
+          <p className="mt-1 text-[13px] text-[#6b7389]">
             Browser voice preview · Natural EBMA voices & clone in the portal
           </p>
         </div>
-        <div className="flex items-center gap-2 text-[12px] text-[#8b98ae]">
-          <Volume2 size={14} className="text-[#9b5cf6]" />
+        <div className="flex items-center gap-2 text-[12px] text-[#6b7389]">
+          <Volume2 size={14} className="text-[#7c3aed]" />
           Rate
           <input
             type="range"
@@ -75,9 +75,9 @@ export function TtsSampleDemo() {
             step={0.05}
             value={rate}
             onChange={(e) => setRate(Number(e.target.value))}
-            className="w-24 accent-[#9b5cf6]"
+            className="w-24 accent-[#7c3aed]"
           />
-          <span className="w-8 tabular-nums text-[#c5d0e0]">{rate.toFixed(2)}</span>
+          <span className="w-8 tabular-nums text-[#121528]">{rate.toFixed(2)}</span>
         </div>
       </div>
 
@@ -91,8 +91,8 @@ export function TtsSampleDemo() {
               className={cx(
                 "rounded-full border px-3 py-1.5 text-[12px] font-semibold transition",
                 sampleId === sample.id
-                  ? "border-[#7c3aed] bg-[rgba(124,58,237,.18)] text-white"
-                  : "border-[#2f3a5c] text-[#aeb6c9] hover:border-[#454e7d]",
+                  ? "border-[#7c3aed] bg-[rgba(124,58,237,.1)] text-[#121528]"
+                  : "border-[#d5dbea] bg-white text-[#5c6478] hover:border-[#c5cce0] hover:bg-[#f0f3fa]",
               )}
             >
               {sample.label}
@@ -100,23 +100,23 @@ export function TtsSampleDemo() {
           ))}
         </div>
 
-        <label className="mb-2 block text-[11px] font-bold uppercase tracking-[0.1em] text-[#8b98ae]">
+        <label className="mb-2 block text-[11px] font-bold uppercase tracking-[0.1em] text-[#8a92a8]">
           Text to speak · {active.language}
         </label>
         <textarea
           value={text}
           onChange={(e) => setText(e.target.value.slice(0, 280))}
           rows={4}
-          className="w-full resize-none rounded-xl border border-[#2a3552] bg-[#0a1020] px-4 py-3 text-[15px] leading-relaxed text-white outline-none placeholder:text-[#66738d] focus:border-[#5b4fe9]"
+          className="w-full resize-none rounded-xl border border-[#d5dbea] bg-[#f8fafc] px-4 py-3 text-[15px] leading-relaxed text-[#121528] outline-none placeholder:text-[#8a92a8] focus:border-[#5b4fe9]"
           placeholder="Type something to preview…"
         />
-        <div className="mt-2 flex items-center justify-between text-[12px] text-[#8b98ae]">
+        <div className="mt-2 flex items-center justify-between text-[12px] text-[#8a92a8]">
           <span>Lang: {langCode}</span>
           <span>{text.length}/280</span>
         </div>
 
         {!supported && (
-          <p className="mt-3 text-[12px] text-[#ef6a82]">
+          <p className="mt-3 text-[12px] text-[#db2777]">
             Speech synthesis is unavailable in this browser.
           </p>
         )}
@@ -152,8 +152,8 @@ export function TtsSampleDemo() {
         </div>
       </div>
 
-      <div className="flex flex-wrap items-center justify-between gap-3 border-t border-[#262d4d] px-5 py-4">
-        <p className="text-[12px] text-[#8b98ae]">
+      <div className="flex flex-wrap items-center justify-between gap-3 border-t border-[#e2e7f2] bg-[#f8fafc] px-5 py-4">
+        <p className="text-[12px] text-[#6b7389]">
           Need production voices, downloads, and clone?
         </p>
         <div className="flex flex-wrap gap-2">

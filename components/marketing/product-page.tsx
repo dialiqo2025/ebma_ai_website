@@ -22,22 +22,22 @@ import {
 
 const accentMap = {
   cyan: {
-    glow: "rgba(56,189,248,.16)",
-    text: "text-[#38bdf8]",
-    border: "border-[rgba(56,189,248,.28)]",
-    soft: "bg-[rgba(56,189,248,.08)]",
+    glow: "rgba(2,132,199,.12)",
+    text: "text-[#0284c7]",
+    border: "border-[rgba(2,132,199,.28)]",
+    soft: "bg-[rgba(2,132,199,.08)]",
   },
   violet: {
-    glow: "rgba(155,92,246,.16)",
-    text: "text-[#9b5cf6]",
-    border: "border-[rgba(155,92,246,.28)]",
-    soft: "bg-[rgba(155,92,246,.08)]",
+    glow: "rgba(124,58,237,.12)",
+    text: "text-[#7c3aed]",
+    border: "border-[rgba(124,58,237,.28)]",
+    soft: "bg-[rgba(124,58,237,.08)]",
   },
   pink: {
-    glow: "rgba(239,118,202,.16)",
-    text: "text-[#ef76ca]",
-    border: "border-[rgba(239,118,202,.28)]",
-    soft: "bg-[rgba(239,118,202,.08)]",
+    glow: "rgba(219,39,119,.12)",
+    text: "text-[#db2777]",
+    border: "border-[rgba(219,39,119,.28)]",
+    soft: "bg-[rgba(219,39,119,.08)]",
   },
 } as const;
 
@@ -73,7 +73,7 @@ export function ProductPage({ product }: { product: ProductPageContent }) {
       <section
         className="relative pt-20 max-[820px]:pt-[68px]"
         style={{
-          background: `radial-gradient(circle at 78% 18%, ${accent.glow}, transparent 28%), linear-gradient(180deg,#090b17,#0a0d1a)`,
+          background: `radial-gradient(circle at 78% 18%, ${accent.glow}, transparent 28%), linear-gradient(180deg,#f7f8fc,#eef1f8)`,
         }}
       >
         <div
@@ -93,14 +93,14 @@ export function ProductPage({ product }: { product: ProductPageContent }) {
             >
               {product.eyebrow}
             </div>
-            <h1 className="my-[26px] mb-5 font-heading text-[clamp(40px,5vw,64px)] font-[650] leading-[1.05] tracking-[-0.05em]">
+            <h1 className="my-[26px] mb-5 font-heading text-[clamp(40px,5vw,64px)] font-[650] leading-[1.05] tracking-[-0.05em] text-[#121528]">
               {product.title}
               <br />
               <span className="bg-[linear-gradient(100deg,#8c7ff7,#bd71ed_75%)] bg-clip-text text-transparent">
                 {product.highlight}
               </span>
             </h1>
-            <p className="m-0 max-w-[560px] text-lg leading-[1.7] text-[#a4aac8] max-[820px]:mx-auto max-[560px]:text-[15px]">
+            <p className="m-0 max-w-[560px] text-lg leading-[1.7] text-[#5c6478] max-[820px]:mx-auto max-[560px]:text-[15px]">
               {product.description}
             </p>
             <div className="mt-8 flex gap-3 max-[820px]:justify-center max-[560px]:flex-col">
@@ -116,7 +116,7 @@ export function ProductPage({ product }: { product: ProductPageContent }) {
                 {product.secondaryCta.label}
               </Button>
             </div>
-            <div className="mt-6 flex flex-wrap gap-x-5 gap-y-2 text-[12px] text-[#747c9f] max-[820px]:justify-center">
+            <div className="mt-6 flex flex-wrap gap-x-5 gap-y-2 text-[12px] text-[#7a8299] max-[820px]:justify-center">
               {product.highlights.map((item) => (
                 <span key={item} className="inline-flex items-center gap-1.5">
                   <Check size={14} className="text-success" /> {item}
@@ -129,16 +129,16 @@ export function ProductPage({ product }: { product: ProductPageContent }) {
         </div>
       </section>
 
-      <section className="border-t border-white/[0.04] bg-[#0b0f1c] py-[80px] max-[820px]:py-[60px]">
+      <section className="border-t border-[#d5dbea] bg-bg py-[80px] max-[820px]:py-[60px]">
         <div className={container}>
           <div className="mb-8 max-w-[640px] max-[820px]:mx-auto max-[820px]:text-center">
             <span className={cx("text-[12px] font-extrabold uppercase tracking-[0.13em]", accent.text)}>
               Interactive preview
             </span>
-            <h2 className="mt-3 font-heading text-[clamp(28px,3.4vw,40px)] font-semibold tracking-[-0.035em]">
+            <h2 className="mt-3 font-heading text-[clamp(28px,3.4vw,40px)] font-semibold tracking-[-0.035em] text-[#121528]">
               Test it before you sign in
             </h2>
-            <p className="mt-3 text-[14px] leading-[1.7] text-[#8d94b4]">
+            <p className="mt-3 text-[14px] leading-[1.7] text-[#6b7389]">
               Try a live browser preview on this page. Full production quality continues in
               the portal.
             </p>
@@ -151,7 +151,7 @@ export function ProductPage({ product }: { product: ProductPageContent }) {
 
       <section className="bg-bg-deep py-[80px] max-[820px]:py-[60px]">
         <div className={container}>
-          <h2 className="mb-6 font-heading text-[28px] font-semibold tracking-[-0.03em]">
+          <h2 className="mb-6 font-heading text-[28px] font-semibold tracking-[-0.03em] text-[#121528]">
             More from ebma
           </h2>
           <div className="grid grid-cols-2 gap-4 max-[560px]:grid-cols-1">
@@ -159,15 +159,15 @@ export function ProductPage({ product }: { product: ProductPageContent }) {
               <Link
                 key={item.slug}
                 href={`/products/${item.slug}`}
-                className="rounded-[16px] border border-[#283052] bg-[#12172b] p-5 transition duration-250 hover:-translate-y-0.5 hover:border-[#454e7d]"
+                className="rounded-[16px] border border-[#d5dbea] bg-white p-5 shadow-[0_8px_24px_rgba(18,21,40,.08)] transition duration-250 hover:-translate-y-0.5 hover:border-[#c5cce0] hover:shadow-[0_12px_32px_rgba(18,21,40,.1)]"
               >
-                <span className="text-[12px] font-extrabold uppercase tracking-[0.12em] text-[#9c91f8]">
+                <span className="text-[12px] font-extrabold uppercase tracking-[0.12em] text-[#6b5ce6]">
                   {item.eyebrow}
                 </span>
-                <p className="mt-2 font-heading text-[20px] font-semibold text-white">
+                <p className="mt-2 font-heading text-[20px] font-semibold text-[#121528]">
                   {item.title} {item.highlight}
                 </p>
-                <span className="mt-4 inline-flex items-center gap-1.5 text-[12px] font-bold text-[#d7daea]">
+                <span className="mt-4 inline-flex items-center gap-1.5 text-[12px] font-bold text-[#5c6478]">
                   Explore <ArrowRight size={14} />
                 </span>
               </Link>
@@ -178,7 +178,7 @@ export function ProductPage({ product }: { product: ProductPageContent }) {
 
       <section className="relative grid place-items-center overflow-hidden bg-[linear-gradient(135deg,#4033bd,#6d42d7_55%,#834ad9)] py-[90px] max-[560px]:py-[70px]">
         <div className={cx(container, "relative z-[2] text-center")}>
-          <h2 className="font-heading text-[clamp(32px,4vw,46px)] font-[620] leading-[1.1] tracking-[-0.04em]">
+          <h2 className="font-heading text-[clamp(32px,4vw,46px)] font-[620] leading-[1.1] tracking-[-0.04em] text-white">
             Ready to try {product.eyebrow.toLowerCase()}?
           </h2>
           <p className="mx-auto mt-4 mb-8 max-w-[520px] text-sm leading-[1.7] text-[#d4d0ec]">

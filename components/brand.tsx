@@ -23,7 +23,7 @@ export function Brand({
         priority
       />
       {!compact && (
-        <span className="border-l border-[#3c4368] pl-2 font-heading text-[12px] font-semibold tracking-[0.18em] text-[#b3b8d2]">
+        <span className="border-l border-border pl-2 font-heading text-[12px] font-semibold tracking-[0.18em] text-muted">
           AI
         </span>
       )}
