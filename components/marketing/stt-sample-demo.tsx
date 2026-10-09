@@ -1,21 +1,47 @@
 "use client";
 
-import { ArrowRight, Mic, Square, Waves } from "lucide-react";
+import { ArrowRight, Loader2, Mic, Square, Waves } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { sttDemoSamples, type SttDemoSample } from "@/content/demos";
 import { cx } from "@/lib/cn";
-import { portalSignupUrl, portalSttUrl } from "@/lib/site";
+import {
+  fetchPlaygroundStatus,
+  PlaygroundApiError,
+  runPlaygroundStt,
+} from "@/lib/playground-api";
+import { portalLoginUrl, portalSignupUrl, portalSttUrl } from "@/lib/site";
 
 type Mode = "samples" | "mic";
 
-function getSpeechRecognitionCtor(): (new () => SpeechRecognition) | null {
+const MAX_RECORD_MS = 15_000;
+
+type BrowserSpeechRecognition = {
+  continuous: boolean;
+  interimResults: boolean;
+  lang: string;
+  onresult: ((event: {
+    resultIndex: number;
+    results: ArrayLike<{
+      isFinal: boolean;
+      0: { transcript: string };
+    }>;
+  }) => void) | null;
+  onerror: ((event: { error?: string }) => void) | null;
+  onend: (() => void) | null;
+  start: () => void;
+  stop: () => void;
+  abort: () => void;
+};
+
+type BrowserSpeechRecognitionCtor = new () => BrowserSpeechRecognition;
+
+function getSpeechRecognitionCtor(): BrowserSpeechRecognitionCtor | null {
   if (typeof window === "undefined") return null;
-  const w = window as Window &
-    typeof globalThis & {
-      SpeechRecognition?: new () => SpeechRecognition;
-      webkitSpeechRecognition?: new () => SpeechRecognition;
-    };
+  const w = window as Window & {
+    SpeechRecognition?: BrowserSpeechRecognitionCtor;
+    webkitSpeechRecognition?: BrowserSpeechRecognitionCtor;
+  };
   return w.SpeechRecognition || w.webkitSpeechRecognition || null;
 }
 
@@ -25,20 +51,50 @@ export function SttSampleDemo() {
   const [visibleCount, setVisibleCount] = useState(0);
   const [running, setRunning] = useState(false);
   const [micSupported, setMicSupported] = useState(false);
+  const [livePreviewSupported, setLivePreviewSupported] = useState(false);
   const [listening, setListening] = useState(false);
+  const [transcribing, setTranscribing] = useState(false);
   const [liveText, setLiveText] = useState("");
+  const [previewOnly, setPreviewOnly] = useState(false);
   const [micError, setMicError] = useState("");
+  const [remaining, setRemaining] = useState<number | null>(null);
+  const [limit, setLimit] = useState(5);
+  const [exhausted, setExhausted] = useState(false);
   const timerRef = useRef<number | null>(null);
-  const recognitionRef = useRef<SpeechRecognition | null>(null);
+  const mediaRecorderRef = useRef<MediaRecorder | null>(null);
+  const streamRef = useRef<MediaStream | null>(null);
+  const chunksRef = useRef<Blob[]>([]);
+  const maxTimerRef = useRef<number | null>(null);
+  const recognitionRef = useRef<BrowserSpeechRecognition | null>(null);
+  const finalPreviewRef = useRef("");
+  const keepRecognizingRef = useRef(false);
 
   const active =
     sttDemoSamples.find((s) => s.id === activeId) ?? sttDemoSamples[0];
 
   useEffect(() => {
-    setMicSupported(Boolean(getSpeechRecognitionCtor()));
+    setMicSupported(
+      typeof window !== "undefined" &&
+        Boolean(navigator.mediaDevices?.getUserMedia) &&
+        typeof MediaRecorder !== "undefined",
+    );
+    setLivePreviewSupported(Boolean(getSpeechRecognitionCtor()));
+    let cancelled = false;
+    void fetchPlaygroundStatus("stt")
+      .then((status) => {
+        if (cancelled) return;
+        setRemaining(status.remaining);
+        setLimit(status.limit);
+        setExhausted(status.exhausted);
+      })
+      .catch(() => undefined);
+
     return () => {
+      cancelled = true;
       if (timerRef.current !== null) window.clearInterval(timerRef.current);
-      recognitionRef.current?.stop();
+      if (maxTimerRef.current !== null) window.clearTimeout(maxTimerRef.current);
+      stopMicTracks();
+      stopLivePreview();
     };
   }, []);
 
@@ -50,6 +106,80 @@ export function SttSampleDemo() {
       timerRef.current = null;
     }
   }, [activeId]);
+
+  const stopLivePreview = () => {
+    keepRecognizingRef.current = false;
+    const recognition = recognitionRef.current;
+    recognitionRef.current = null;
+    if (!recognition) return;
+    recognition.onresult = null;
+    recognition.onerror = null;
+    recognition.onend = null;
+    try {
+      recognition.stop();
+    } catch {
+      try {
+        recognition.abort();
+      } catch {
+        // ignore
+      }
+    }
+  };
+
+  const stopMicTracks = () => {
+    mediaRecorderRef.current?.stop();
+    mediaRecorderRef.current = null;
+    streamRef.current?.getTracks().forEach((t) => t.stop());
+    streamRef.current = null;
+  };
+
+  const startLivePreview = () => {
+    const Ctor = getSpeechRecognitionCtor();
+    if (!Ctor) return;
+    stopLivePreview();
+    finalPreviewRef.current = "";
+    keepRecognizingRef.current = true;
+    const recognition = new Ctor();
+    recognition.continuous = true;
+    recognition.interimResults = true;
+    recognition.lang = "en-IN";
+    recognition.onresult = (event) => {
+      let interim = "";
+      let finals = finalPreviewRef.current;
+      for (let i = event.resultIndex; i < event.results.length; i += 1) {
+        const result = event.results[i];
+        const piece = result?.[0]?.transcript || "";
+        if (result.isFinal) {
+          finals = `${finals} ${piece}`.trim();
+          finalPreviewRef.current = finals;
+        } else {
+          interim += piece;
+        }
+      }
+      const next = `${finals} ${interim}`.trim();
+      if (next) {
+        setLiveText(next);
+        setPreviewOnly(true);
+      }
+    };
+    recognition.onerror = () => {
+      // Browser STT is best-effort preview only; EBMA still runs on stop.
+    };
+    recognition.onend = () => {
+      if (!keepRecognizingRef.current) return;
+      try {
+        recognition.start();
+      } catch {
+        // ignore restart races
+      }
+    };
+    recognitionRef.current = recognition;
+    try {
+      recognition.start();
+    } catch {
+      stopLivePreview();
+    }
+  };
 
   const playSample = (sample: SttDemoSample) => {
     setActiveId(sample.id);
@@ -75,40 +205,104 @@ export function SttSampleDemo() {
     setVisibleCount(active.segments.length);
   };
 
-  const startMic = () => {
-    const Ctor = getSpeechRecognitionCtor();
-    if (!Ctor) {
-      setMicError("Live mic preview needs Chrome or Edge.");
-      return;
+  const finishRecording = async (blob: Blob) => {
+    setListening(false);
+    setTranscribing(true);
+    setMicError("");
+    try {
+      const result = await runPlaygroundStt(blob, "playground.webm");
+      setLiveText(result.transcript || "(No speech detected)");
+      setPreviewOnly(false);
+      setRemaining(result.remaining);
+      setLimit(result.limit);
+      setExhausted(result.remaining <= 0);
+    } catch (err) {
+      if (err instanceof PlaygroundApiError) {
+        if (err.code === "trial_exhausted") {
+          setExhausted(true);
+          setRemaining(0);
+          setMicError("Free STT trials used up. Sign in to continue in the portal.");
+        } else if (err.code === "rate_limited") {
+          setMicError(
+            err.meta?.retryAfterSeconds
+              ? `Please wait ${err.meta.retryAfterSeconds}s before trying again.`
+              : "Please wait a moment before trying again.",
+          );
+        } else {
+          setMicError(err.message);
+        }
+        if (typeof err.meta?.remaining === "number") setRemaining(err.meta.remaining);
+        if (typeof err.meta?.limit === "number") setLimit(err.meta.limit);
+      } else {
+        setMicError("STT playground is unavailable right now.");
+      }
+    } finally {
+      setTranscribing(false);
     }
+  };
+
+  const startMic = async () => {
+    if (exhausted || transcribing) return;
     setMicError("");
     setLiveText("");
-    const recognition = new Ctor();
-    recognition.continuous = true;
-    recognition.interimResults = true;
-    recognition.lang = "en-IN";
-    recognition.onresult = (event: SpeechRecognitionEvent) => {
-      let text = "";
-      for (let i = 0; i < event.results.length; i += 1) {
-        text += event.results[i][0].transcript;
-        if (i < event.results.length - 1) text += " ";
-      }
-      setLiveText(text.trim());
-    };
-    recognition.onerror = () => {
+    setPreviewOnly(false);
+    finalPreviewRef.current = "";
+    try {
+      const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+      streamRef.current = stream;
+      chunksRef.current = [];
+      const mimeType = MediaRecorder.isTypeSupported("audio/webm;codecs=opus")
+        ? "audio/webm;codecs=opus"
+        : MediaRecorder.isTypeSupported("audio/webm")
+          ? "audio/webm"
+          : "";
+      const recorder = new MediaRecorder(stream, mimeType ? { mimeType } : undefined);
+      mediaRecorderRef.current = recorder;
+      recorder.ondataavailable = (event) => {
+        if (event.data.size > 0) chunksRef.current.push(event.data);
+      };
+      recorder.onstop = () => {
+        stopLivePreview();
+        const blob = new Blob(chunksRef.current, {
+          type: recorder.mimeType || "audio/webm",
+        });
+        stream.getTracks().forEach((t) => t.stop());
+        streamRef.current = null;
+        mediaRecorderRef.current = null;
+        if (blob.size > 0) void finishRecording(blob);
+        else {
+          setListening(false);
+          setMicError("No audio captured. Try again.");
+        }
+      };
+      recorder.start(250);
+      setListening(true);
+      startLivePreview();
+      if (maxTimerRef.current !== null) window.clearTimeout(maxTimerRef.current);
+      maxTimerRef.current = window.setTimeout(() => {
+        if (mediaRecorderRef.current?.state === "recording") {
+          mediaRecorderRef.current.stop();
+        }
+      }, MAX_RECORD_MS);
+    } catch {
       setMicError("Microphone permission denied or unavailable.");
       setListening(false);
-    };
-    recognition.onend = () => setListening(false);
-    recognitionRef.current = recognition;
-    recognition.start();
-    setListening(true);
+      stopLivePreview();
+    }
   };
 
   const stopMic = () => {
-    recognitionRef.current?.stop();
-    recognitionRef.current = null;
-    setListening(false);
+    if (maxTimerRef.current !== null) {
+      window.clearTimeout(maxTimerRef.current);
+      maxTimerRef.current = null;
+    }
+    stopLivePreview();
+    if (mediaRecorderRef.current?.state === "recording") {
+      mediaRecorderRef.current.stop();
+    } else {
+      stopMicTracks();
+      setListening(false);
+    }
   };
 
   const shown = active.segments.slice(0, Math.max(visibleCount, 0));
@@ -118,10 +312,11 @@ export function SttSampleDemo() {
       <div className="flex flex-wrap items-center justify-between gap-3 border-b border-[#e2e7f2] bg-[#f8fafc] px-5 py-4">
         <div>
           <p className="text-[12px] font-extrabold uppercase tracking-[0.12em] text-[#0284c7]">
-            Try a sample
+            Try STT
           </p>
           <p className="mt-1 text-[13px] text-[#6b7389]">
-            Browser preview · Full EBMA ASR, diarization & exports in the portal
+            Samples are free · Live mic uses EBMA ASR (
+            {remaining === null ? `${limit} free tries` : `${remaining} of ${limit} left`})
           </p>
         </div>
         <div className="flex rounded-full border border-[#d5dbea] bg-white p-1">
@@ -234,43 +429,95 @@ export function SttSampleDemo() {
         <div className="p-5">
           <div className="mb-4 flex flex-wrap items-center justify-between gap-3">
             <p className="text-[13px] text-[#5c6478]">
-              Uses your browser&apos;s speech recognition for a quick feel. Switch to the
-              portal for EBMA accuracy, speakers, and exports.
+              {livePreviewSupported
+                ? "Speak and see text appear live. Stop to confirm with EBMA ASR (1 free trial)."
+                : "Record up to 15 seconds, then stop to run EBMA ASR (1 free trial)."}
             </p>
-            <Button
-              variant="primary"
-              className="min-h-[38px] px-3.5 text-[12px]"
-              disabled={!micSupported}
-              onClick={() => (listening ? stopMic() : startMic())}
-            >
-              {listening ? (
-                <>
-                  <Square size={13} /> Stop
-                </>
-              ) : (
-                <>
-                  <Mic size={14} /> Start listening
-                </>
-              )}
-            </Button>
+            {!exhausted && (
+              <Button
+                variant="primary"
+                className="min-h-[38px] px-3.5 text-[12px]"
+                disabled={!micSupported || transcribing}
+                onClick={() => (listening ? stopMic() : void startMic())}
+              >
+                {transcribing ? (
+                  <>
+                    <Loader2 size={14} className="animate-spin" /> Confirming with EBMA…
+                  </>
+                ) : listening ? (
+                  <>
+                    <Square size={13} /> Stop & confirm
+                  </>
+                ) : (
+                  <>
+                    <Mic size={14} /> Start speaking
+                  </>
+                )}
+              </Button>
+            )}
           </div>
           {!micSupported && (
             <p className="mb-3 text-[12px] text-[#db2777]">
-              Live mic preview is best in Chrome or Edge.
+              Microphone recording needs a modern browser with MediaRecorder support.
             </p>
           )}
           {micError && <p className="mb-3 text-[12px] text-[#db2777]">{micError}</p>}
-          <div className="min-h-[220px] rounded-xl border border-[#e2e7f2] bg-[#f8fafc] px-4 py-4">
-            {liveText ? (
-              <p className="text-[18px] leading-relaxed text-[#121528]">{liveText}</p>
-            ) : (
-              <p className="py-16 text-center text-[13px] text-[#8a92a8]">
-                {listening
-                  ? "Listening… speak clearly into your microphone."
-                  : "Start listening to capture a live browser transcript."}
+
+          {exhausted ? (
+            <div className="rounded-xl border border-[#e9d5ff] bg-[#faf5ff] px-4 py-4">
+              <p className="text-[13px] font-semibold text-[#121528]">Sign in to keep using STT</p>
+              <p className="mt-1 text-[12px] text-[#6b7389]">
+                Your free website trials are used. Create an account for live ASR, diarization, and
+                exports.
               </p>
-            )}
-          </div>
+              <div className="mt-3 flex flex-wrap gap-2">
+                <Button variant="primary" href={portalLoginUrl} className="min-h-[38px] text-[12px]">
+                  Sign in
+                </Button>
+                <Button variant="quiet" href={portalSignupUrl} className="min-h-[38px] text-[12px]">
+                  Create account
+                </Button>
+              </div>
+            </div>
+          ) : (
+            <div className="min-h-[220px] rounded-xl border border-[#e2e7f2] bg-[#f8fafc] px-4 py-4">
+              {liveText ? (
+                <div>
+                  {previewOnly && (
+                    <p className="mb-2 text-[11px] font-semibold uppercase tracking-[0.12em] text-[#0284c7]">
+                      Live preview
+                    </p>
+                  )}
+                  {!previewOnly && !listening && !transcribing && (
+                    <p className="mb-2 text-[11px] font-semibold uppercase tracking-[0.12em] text-[#059669]">
+                      EBMA transcript
+                    </p>
+                  )}
+                  <p
+                    className={cx(
+                      "text-[18px] leading-relaxed text-[#121528]",
+                      previewOnly && "italic text-[#334155]",
+                    )}
+                  >
+                    {liveText}
+                    {listening && previewOnly ? (
+                      <span className="ml-1 inline-block h-4 w-0.5 animate-pulse bg-[#0284c7] align-middle" />
+                    ) : null}
+                  </p>
+                </div>
+              ) : (
+                <p className="py-16 text-center text-[13px] text-[#8a92a8]">
+                  {transcribing
+                    ? "Confirming with EBMA ASR…"
+                    : listening
+                      ? livePreviewSupported
+                        ? "Listening… text will appear as you speak."
+                        : "Recording… speak clearly, then stop (max 15s)."
+                      : "Start speaking to try a live transcription trial."}
+                </p>
+              )}
+            </div>
+          )}
         </div>
       )}
 
