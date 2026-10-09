@@ -75,7 +75,7 @@ export function ProductInteractiveBody({
 
   return (
     <>
-      <section className="border-t border-[#d5dbea] bg-bg py-[100px] max-[820px]:py-[72px]">
+      <section className="border-t border-[#d5dbea] bg-bg py-[70px] max-[820px]:py-[72px]">
         <div className={container}>
           <div className="mb-12 max-w-[640px] max-[820px]:mx-auto max-[820px]:text-center">
             <span className={cx("text-[12px] font-extrabold uppercase tracking-[0.13em]", accentText[accent])}>
@@ -157,7 +157,7 @@ export function ProductInteractiveBody({
         </div>
       </section>
 
-      <section className="bg-bg-deep py-[100px] max-[820px]:py-[72px]">
+      <section className="bg-bg-deep py-[70px] max-[820px]:py-[72px]">
         <div className={container}>
           <div className="mb-8 max-w-[640px]">
             <span className={cx("text-[12px] font-extrabold uppercase tracking-[0.13em]", accentText[accent])}>
@@ -230,7 +230,7 @@ export function ProductInteractiveBody({
         </div>
       </section>
 
-      <section className="border-t border-[#d5dbea] bg-bg py-[100px] max-[820px]:py-[72px]">
+      <section className="border-t border-[#d5dbea] bg-bg py-[70px] max-[820px]:py-[72px]">
         <div className={container}>
           <div className="mb-10 max-w-[560px]">
             <span className={cx("text-[12px] font-extrabold uppercase tracking-[0.13em]", accentText[accent])}>

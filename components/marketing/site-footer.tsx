@@ -9,7 +9,7 @@ export function SiteFooter() {
       <div
         className={cx(
           container,
-          "flex justify-between py-[75px] pb-[65px] max-[820px]:gap-[50px] max-[560px]:block max-[560px]:py-[55px]",
+          "flex justify-between py-[55px] pb-[55px] max-[820px]:gap-[50px] max-[560px]:block max-[560px]:py-[55px]",
         )}
       >
         <div>

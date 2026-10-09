@@ -79,7 +79,7 @@ export function ProductPage({ product }: { product: ProductPageContent }) {
         <div
           className={cx(
             container,
-            "relative grid grid-cols-[1.1fr_0.9fr] items-center gap-16 py-[90px] max-[1050px]:gap-10 max-[820px]:grid-cols-1 max-[820px]:py-[70px]",
+            "relative grid grid-cols-[1.1fr_0.9fr] items-center gap-16 py-[60px] max-[1050px]:gap-10 max-[820px]:grid-cols-1 max-[820px]:py-[70px]",
           )}
         >
           <div className="max-[820px]:text-center">
@@ -129,7 +129,7 @@ export function ProductPage({ product }: { product: ProductPageContent }) {
         </div>
       </section>
 
-      <section className="border-t border-[#d5dbea] bg-bg py-[80px] max-[820px]:py-[60px]">
+      <section className="border-t border-[#d5dbea] bg-bg py-[70px] max-[820px]:py-[60px]">
         <div className={container}>
           <div className="mb-8 max-w-[640px] max-[820px]:mx-auto max-[820px]:text-center">
             <span className={cx("text-[12px] font-extrabold uppercase tracking-[0.13em]", accent.text)}>
@@ -149,7 +149,7 @@ export function ProductPage({ product }: { product: ProductPageContent }) {
 
       <ProductInteractiveBody product={product} />
 
-      <section className="bg-bg-deep py-[80px] max-[820px]:py-[60px]">
+      <section className="bg-bg-deep py-[60px] max-[820px]:py-[60px]">
         <div className={container}>
           <h2 className="mb-6 font-heading text-[28px] font-semibold tracking-[-0.03em] text-[#121528]">
             More from ebma

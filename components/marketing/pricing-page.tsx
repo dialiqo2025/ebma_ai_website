@@ -23,7 +23,7 @@ export function PricingPage() {
 
       <section className="relative pt-20 max-[820px]:pt-[68px]">
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(91,79,233,.12),transparent_42%)]" />
-        <div className={cx(container, "relative py-[90px] text-center max-[820px]:py-[70px]")}>
+        <div className={cx(container, "relative py-[70px] text-center max-[820px]:py-[70px]")}>
           <div className="mx-auto inline-flex items-center gap-2 rounded-full border border-[rgba(155,92,246,.3)] bg-[rgba(91,79,233,.1)] px-3 py-2 text-[12px] font-[750] uppercase tracking-[0.1em] text-[#6b5ce6]">
             <Sparkles size={14} /> Pricing
           </div>
@@ -48,9 +48,9 @@ export function PricingPage() {
         </div>
       </section>
 
-      <section className="border-t border-[#d5dbea] bg-bg-deep pb-[100px] max-[820px]:pb-[72px]">
+      <section className="border-t border-[#d5dbea] bg-bg-deep pb-[40px] max-[820px]:pb-[72px]">
         <div className={container}>
-          <div className="grid grid-cols-3 gap-4 max-[980px]:grid-cols-1">
+          <div className="grid grid-cols-3 gap-4 max-[980px]:grid-cols-1 pt-10">
             {pricingPlans.map((plan) => {
               const href =
                 plan.ctaHref === "contact" ? contactHref : portalSignupUrl;
@@ -154,7 +154,7 @@ export function PricingPage() {
         </div>
       </section>
 
-      <section className="border-t border-[#d5dbea] bg-bg-deep py-[100px] max-[820px]:py-[72px]">
+      <section className="border-t border-[#d5dbea] bg-bg-deep py-[70px] max-[820px]:py-[72px]">
         <div className={container}>
           <div className="mb-10 max-w-[560px]">
             <span className="text-[12px] font-extrabold uppercase tracking-[0.13em] text-[#6b5ce6]">

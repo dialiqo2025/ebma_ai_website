@@ -70,6 +70,7 @@ const services = [
     tags: ["Live transcription", "Speaker detection", "Multilingual"],
     color: "cyan" as const,
     visual: "wave" as const,
+    href: productSttPath,
   },
   {
     icon: Volume2,
@@ -80,6 +81,7 @@ const services = [
     tags: ["Natural voices", "Low latency", "Custom expression"],
     color: "violet" as const,
     visual: "voice" as const,
+    href: productTtsPath,
   },
   {
     icon: Bot,
@@ -90,6 +92,7 @@ const services = [
     tags: ["Gemini powered", "Long context", "Tool ready"],
     color: "pink" as const,
     visual: "chat" as const,
+    href: productLlmPath,
   },
 ];
 
@@ -107,7 +110,7 @@ export function LandingPage() {
         <div
           className={cx(
             container,
-            "relative grid min-h-[668px] grid-cols-2 items-center gap-[62px]  max-[1050px]:gap-[35px] max-[820px]:grid-cols-1 max-[820px]:px-0 max-[820px]:py-[90px] max-[820px]:pb-[65px] max-[560px]:gap-[55px] max-[560px]:pt-[75px]",
+            "relative grid min-h-[600px] grid-cols-2 items-center gap-[62px]  max-[1050px]:gap-[35px] max-[820px]:grid-cols-1 max-[820px]:px-0 max-[820px]:py-[90px] max-[820px]:pb-[65px] max-[560px]:gap-[55px] max-[560px]:pt-[75px]",
           )}
         >
           <div className="relative z-[2] animate-[fade-up_.8s_ease_both] max-[820px]:min-w-0 max-[820px]:text-center">
@@ -268,7 +271,7 @@ export function LandingPage() {
       </section>
 
       <section
-        className="border-t border-[#d5dbea] bg-bg-deep py-[120px] max-[820px]:py-[90px]"
+        className="border-t border-[#d5dbea] bg-bg-deep pt-[90px] max-[820px]:py-[90px]"
         id="products"
       >
         <div className={container}>
@@ -292,9 +295,10 @@ export function LandingPage() {
             {services.map((service, index) => {
               const accent = serviceAccents[service.color];
               return (
-                <article
+                <Link
                   key={service.title}
-                  className="group relative min-h-[540px] overflow-hidden rounded-[20px] border border-[#d5dbea] bg-white p-6 transition duration-300 hover:-translate-y-[5px] hover:border-[#c5cce0] hover:shadow-[0_25px_50px_rgba(18,21,40,.12)] max-[1050px]:p-5 max-[820px]:min-h-[515px]"
+                  href={service.href}
+                  className="group relative block min-h-[540px] cursor-pointer overflow-hidden rounded-[20px] border border-[#d5dbea] bg-white p-6 transition duration-300 hover:-translate-y-[5px] hover:border-[#c5cce0] hover:shadow-[0_25px_50px_rgba(18,21,40,.12)] max-[1050px]:p-5 max-[820px]:min-h-[515px]"
                 >
                   <div
                     className={cx(
@@ -374,20 +378,17 @@ export function LandingPage() {
                       </span>
                     ))}
                   </div>
-                  <Link
-                    href={
-                      service.eyebrow === "Speech to text"
-                        ? productSttPath
-                        : service.eyebrow === "Text to speech"
-                          ? productTtsPath
-                          : productLlmPath
-                    }
-                    className="absolute inset-x-6 bottom-6 flex items-center justify-between text-[12px] font-bold text-[#121528]"
-                  >
+                  <span className="absolute inset-x-6 bottom-6 flex items-center justify-between text-[12px] font-bold text-[#121528]">
                     Explore {service.eyebrow.toLowerCase()}{" "}
-                    <ArrowRight size={15} className={accent.accent} />
-                  </Link>
-                </article>
+                    <ArrowRight
+                      size={15}
+                      className={cx(
+                        accent.accent,
+                        "transition-transform duration-300 group-hover:translate-x-0.5",
+                      )}
+                    />
+                  </span>
+                </Link>
               );
             })}
           </div>
@@ -395,7 +396,7 @@ export function LandingPage() {
       </section>
 
       <section
-        className="relative bg-bg-deep py-[120px] before:pointer-events-none before:absolute before:inset-0 before:bg-[radial-gradient(circle_at_80%_50%,rgba(91,79,233,.13),transparent_30%)] before:content-[''] max-[820px]:py-[90px]"
+        className="relative bg-bg-deep py-[90px] before:pointer-events-none before:absolute before:inset-0 before:bg-[radial-gradient(circle_at_80%_50%,rgba(91,79,233,.13),transparent_30%)] before:content-[''] max-[820px]:py-[90px]"
         id="developers"
       >
         <div className={cx(container, "relative grid grid-cols-[0.9fr_1.1fr] items-center gap-[95px] max-[820px]:grid-cols-1 max-[820px]:gap-[55px]")}>
@@ -512,7 +513,7 @@ export function LandingPage() {
         </div>
       </section>
 
-      <section className="bg-bg py-[120px] max-[820px]:py-[90px]" id="enterprise">
+      <section className="bg-bg py-[80px] max-[820px]:py-[90px]" id="enterprise">
         <div className={container}>
           <div className="text-center">
             <span className="inline-flex items-center gap-[7px] text-[12px] font-extrabold uppercase tracking-[0.13em] text-[#6b5ce6]">
@@ -643,7 +644,7 @@ export function LandingPage() {
         <div
           className={cx(
             container,
-            "flex justify-between py-[75px] pb-[65px] max-[820px]:gap-[50px] max-[560px]:block max-[560px]:py-[55px]",
+            "flex justify-between py-[55px] pb-[55px] max-[820px]:gap-[50px] max-[560px]:block max-[560px]:py-[55px]",
           )}
         >
           <div>
