@@ -24,9 +24,11 @@ import {
   Zap,
 } from "lucide-react";
 import { Brand } from "./brand";
+import { DevCodePanel } from "@/components/marketing/dev-code-panel";
 import { SiteHeader } from "@/components/marketing/site-header";
 import { Button } from "./ui/button";
 import {
+  DOCS_URL,
   portalPlatformUrl,
   portalSignupUrl,
   productLlmPath,
@@ -451,65 +453,24 @@ export function LandingPage() {
                 </p>
               </div>
             </div>
-            <a
-              href={portalPlatformUrl}
-              className="inline-flex items-center gap-2.5 text-xs font-bold text-[#6b5ce6]"
-            >
-              Open the playground <MoveRight size={18} />
-            </a>
-          </div>
-          <div className="overflow-hidden rounded-[18px] border border-[#d5dbea] bg-white shadow-[0_35px_80px_rgba(18,21,40,.1)]">
-            <div className="flex h-[54px] items-center gap-[25px] border-b border-[#e2e7f2] bg-[#f8fafc] px-[18px] text-[12px] text-[#6b7389]">
-              <span className="text-[#121528]">
-                <span className="mr-[5px] bg-[#387cc4] p-[3px] text-[12px] text-white">
-                  TS
-                </span>{" "}
-                Node.js
-              </span>
-              <span>Python</span>
-              <button
-                type="button"
-                className="ml-auto rounded-[7px] border border-[#d5dbea] bg-white px-2.5 py-1.5 text-[12px] text-[#5c6478] hover:bg-[#eef1f8]"
+            <div className="flex flex-wrap items-center gap-5 max-[820px]:justify-center">
+              <a
+                href={DOCS_URL}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center gap-2.5 text-xs font-bold text-[#6b5ce6]"
               >
-                Copy
-              </button>
-            </div>
-            <pre className="m-0 min-h-[340px] overflow-auto bg-[#f8fafc] p-[28px_30px] font-mono text-xs leading-[2.1] text-[#374151] max-[560px]:px-[18px] max-[560px]:py-5 max-[560px]:text-[12px]">
-              <code>
-                <span className="text-[#c084fc]">import</span> {"{ EbmaAI }"}{" "}
-                <span className="text-[#c084fc]">from</span>{" "}
-                <span className="text-[#6dd5a5]">&quot;@ebma/ai&quot;</span>;
-                {"\n\n"}
-                <span className="text-[#c084fc]">const</span> ebma ={" "}
-                <span className="text-[#c084fc]">new</span>{" "}
-                <span className="text-[#64b5ed]">EbmaAI</span>({"{"}
-                {"\n"} apiKey: process.env.
-                <span className="text-[#e5a667]">EBMA_API_KEY</span>
-                {"\n"}
-                {"}"});
-                {"\n\n"}
-                <span className="text-[#c084fc]">const</span> transcript ={" "}
-                <span className="text-[#c084fc]">await</span> ebma.speech.
-                <span className="text-[#64b5ed]">transcribe</span>({"{"}
-                {"\n"} audio: audioFile,
-                {"\n"} language:{" "}
-                <span className="text-[#6dd5a5]">&quot;auto&quot;</span>,
-                {"\n"} diarize:{" "}
-                <span className="text-[#e5a667]">true</span>
-                {"\n"}
-                {"}"});
-                {"\n\n"}
-                console.
-                <span className="text-[#64b5ed]">log</span>(transcript.text);
-              </code>
-            </pre>
-            <div className="flex h-11 items-center justify-between border-t border-[#e2e7f2] bg-[#f8fafc] px-[18px] text-[12px] text-[#6b7389]">
-              <span className="flex items-center gap-[5px] text-success">
-                <Check size={13} /> 200 OK
-              </span>
-              <span>184 ms</span>
+                Read the docs <MoveRight size={18} />
+              </a>
+              <a
+                href={portalPlatformUrl}
+                className="inline-flex items-center gap-2.5 text-xs font-bold text-[#5c6478] hover:text-[#6b5ce6]"
+              >
+                Open the playground <MoveRight size={18} />
+              </a>
             </div>
           </div>
+          <DevCodePanel />
         </div>
       </section>
 
@@ -677,10 +638,20 @@ export function LandingPage() {
               <strong className="mb-[5px] text-[12px] uppercase tracking-[0.1em] text-[#5c6478]">
                 Developers
               </strong>
-              <a href="#developers" className="text-[12px] text-[#6b7389] hover:text-[#121528]">
+              <a
+                href={DOCS_URL}
+                target="_blank"
+                rel="noreferrer"
+                className="text-[12px] text-[#6b7389] hover:text-[#121528]"
+              >
                 Documentation
               </a>
-              <a href="#developers" className="text-[12px] text-[#6b7389] hover:text-[#121528]">
+              <a
+                href={DOCS_URL}
+                target="_blank"
+                rel="noreferrer"
+                className="text-[12px] text-[#6b7389] hover:text-[#121528]"
+              >
                 API reference
               </a>
               <a href={portalPlatformUrl} className="text-[12px] text-[#6b7389] hover:text-[#121528]">

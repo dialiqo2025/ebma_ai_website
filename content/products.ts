@@ -156,7 +156,7 @@ export const ttsProduct: ProductPageContent = {
   slug: "text-to-speech",
   eyebrow: "Text to speech",
   title: "Voices that feel",
-  highlight: "natural—and shippable.",
+  highlight: "natural - and shippable.",
   description:
     "Generate expressive speech from text with language-aware controls, playback while generating, and optional voice clone workflows when your backend supports them.",
   primaryCta: { label: "Try in playground", hrefKey: "tts" },

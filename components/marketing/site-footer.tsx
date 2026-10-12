@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { Brand } from "@/components/brand";
 import { container, cx } from "@/lib/cn";
-import { portalPlatformUrl } from "@/lib/site";
+import { DOCS_URL, portalPlatformUrl } from "@/lib/site";
 
 export function SiteFooter() {
   return (
@@ -45,9 +45,14 @@ export function SiteFooter() {
             <Link href="/pricing" className="text-[12px] text-[#6b7389] hover:text-[#121528]">
               Pricing
             </Link>
-            <Link href="/#developers" className="text-[12px] text-[#6b7389] hover:text-[#121528]">
+            <a
+              href={DOCS_URL}
+              target="_blank"
+              rel="noreferrer"
+              className="text-[12px] text-[#6b7389] hover:text-[#121528]"
+            >
               Documentation
-            </Link>
+            </a>
             <a href={portalPlatformUrl} className="text-[12px] text-[#6b7389] hover:text-[#121528]">
               Playground
             </a>

@@ -7,11 +7,11 @@ import { Brand } from "@/components/brand";
 import { ProductsMenu } from "@/components/marketing/products-menu";
 import { Button } from "@/components/ui/button";
 import { container, cx } from "@/lib/cn";
-import { portalLoginUrl, portalSignupUrl } from "@/lib/site";
+import { DOCS_URL, portalLoginUrl, portalSignupUrl } from "@/lib/site";
 
 const links = [
   { label: "Pricing", href: "/pricing" },
-  { label: "Developers", href: "/#developers" },
+  { label: "Developers", href: DOCS_URL, external: true },
   { label: "Enterprise", href: "/#enterprise" },
   { label: "Contact us", href: "/#contact" },
 ] as const;
@@ -35,15 +35,27 @@ export function SiteHeader() {
 
         <div className="ml-auto mr-9 flex items-center gap-8 max-[1050px]:mr-[18px] max-[1050px]:gap-[19px] max-[820px]:hidden">
           <ProductsMenu />
-          {links.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              className="text-[13px] font-semibold text-[#5c6478] transition-colors duration-200 hover:text-[#121528]"
-            >
-              {item.label}
-            </Link>
-          ))}
+          {links.map((item) =>
+            "external" in item && item.external ? (
+              <a
+                key={item.href}
+                href={item.href}
+                target="_blank"
+                rel="noreferrer"
+                className="text-[13px] font-semibold text-[#5c6478] transition-colors duration-200 hover:text-[#121528]"
+              >
+                {item.label}
+              </a>
+            ) : (
+              <Link
+                key={item.href}
+                href={item.href}
+                className="text-[13px] font-semibold text-[#5c6478] transition-colors duration-200 hover:text-[#121528]"
+              >
+                {item.label}
+              </Link>
+            ),
+          )}
         </div>
 
         <div className="flex items-center gap-[13px] max-[820px]:hidden">
@@ -79,16 +91,29 @@ export function SiteHeader() {
           )}
         >
           <ProductsMenu mobile onNavigate={() => setMenuOpen(false)} />
-          {links.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              onClick={() => setMenuOpen(false)}
-              className="block px-[13px] py-[13px] text-[13px] font-semibold text-[#5c6478] transition-colors hover:text-[#121528]"
-            >
-              {item.label}
-            </Link>
-          ))}
+          {links.map((item) =>
+            "external" in item && item.external ? (
+              <a
+                key={item.href}
+                href={item.href}
+                target="_blank"
+                rel="noreferrer"
+                onClick={() => setMenuOpen(false)}
+                className="block px-[13px] py-[13px] text-[13px] font-semibold text-[#5c6478] transition-colors hover:text-[#121528]"
+              >
+                {item.label}
+              </a>
+            ) : (
+              <Link
+                key={item.href}
+                href={item.href}
+                onClick={() => setMenuOpen(false)}
+                className="block px-[13px] py-[13px] text-[13px] font-semibold text-[#5c6478] transition-colors hover:text-[#121528]"
+              >
+                {item.label}
+              </Link>
+            ),
+          )}
           <div className="mt-2 grid grid-cols-[1fr_1.3fr] gap-2">
             <Button variant="ghost" href={portalLoginUrl}>
               Log in
