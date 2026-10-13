@@ -1,14 +1,18 @@
-export type PricingPlan = {
-  id: string;
-  name: string;
-  price: string;
-  period: string;
-  blurb: string;
-  credits: string;
-  highlighted?: boolean;
-  ctaLabel: string;
-  ctaHref: "signup" | "contact";
-  features: string[];
+export type UsageService = "stt" | "tts" | "llm";
+
+export type UsageClassification = {
+  service: UsageService;
+  label: string;
+  shortLabel: string;
+  description: string;
+  rateUnit: string;
+  measuredBy: string;
+};
+
+export type BillingStep = {
+  number: string;
+  title: string;
+  detail: string;
 };
 
 export type PricingFaq = {
@@ -16,88 +20,86 @@ export type PricingFaq = {
   answer: string;
 };
 
-export const pricingPlans: PricingPlan[] = [
+export const usageClassifications: UsageClassification[] = [
   {
-    id: "free",
-    name: "Free",
-    price: "₹0",
-    period: "to start",
-    blurb: "Explore the console and ship your first voice prototype.",
-    credits: "Starter credits included",
-    ctaLabel: "Start free",
-    ctaHref: "signup",
-    features: [
-      "Speech to text playground",
-      "Text to speech playground",
-      "Live + file transcription demos",
-      "Community support",
-      "No credit card required",
-    ],
+    service: "stt",
+    label: "Speech to Text",
+    shortLabel: "STT",
+    description: "Live conversations and uploaded audio are transcribed into text.",
+    rateUnit: "per audio minute",
+    measuredBy: "Audio duration",
   },
   {
-    id: "pro",
-    name: "Pro",
-    price: "₹2,499",
-    period: "/ month",
-    blurb: "For teams building production voice and language features.",
-    credits: "Higher monthly credit pool",
-    highlighted: true,
-    ctaLabel: "Upgrade in portal",
-    ctaHref: "signup",
-    features: [
-      "Everything in Free",
-      "Higher STT & TTS quotas",
-      "Priority generation throughput",
-      "Export TXT / SRT / VTT / JSON",
-      "Email support",
-      "Usage dashboard",
-    ],
+    service: "tts",
+    label: "Text to Speech",
+    shortLabel: "TTS",
+    description: "Written content is converted into natural-sounding speech.",
+    rateUnit: "per 1,000 characters",
+    measuredBy: "Characters generated",
   },
   {
-    id: "enterprise",
-    name: "Enterprise",
-    price: "Custom",
-    period: "pricing",
-    blurb: "Security, volume, and dedicated support for large rollouts.",
-    credits: "Custom credit & SLA packages",
-    ctaLabel: "Talk to sales",
-    ctaHref: "contact",
-    features: [
-      "Everything in Pro",
-      "SSO & advanced access controls",
-      "Volume discounts",
-      "Dedicated success engineer",
-      "Custom SLAs & invoicing",
-      "Private deployment options",
-    ],
+    service: "llm",
+    label: "LLM Assistant",
+    shortLabel: "LLM",
+    description: "Assistant prompts and responses are processed by the language model.",
+    rateUnit: "per 1,000 tokens",
+    measuredBy: "Tokens processed",
+  },
+];
+
+export const billingSteps: BillingStep[] = [
+  {
+    number: "01",
+    title: "Create your free account",
+    detail: "Get starter credits and explore STT, TTS, and LLM Assistant without a card.",
+  },
+  {
+    number: "02",
+    title: "Add credits when needed",
+    detail: "Refill your wallet from the portal. One credit is equal to ₹1.",
+  },
+  {
+    number: "03",
+    title: "Use any AI service",
+    detail: "Use one wallet across speech recognition, voice generation, and assistance.",
+  },
+  {
+    number: "04",
+    title: "Pay only for usage",
+    detail: "Credits are deducted using the service-specific measurement shown above.",
   },
 ];
 
 export const pricingFaqs: PricingFaq[] = [
   {
-    question: "What are credits?",
+    question: "Is there a monthly subscription?",
     answer:
-      "Credits power STT minutes, TTS characters, and related usage in the portal. Your Free plan starts with a starter balance; Pro and Enterprise increase capacity.",
+      "No. The standard offering is pay as you go. Start with free credits, then refill your wallet whenever you need more capacity.",
   },
   {
-    question: "Can I try before paying?",
+    question: "What is a credit worth?",
     answer:
-      "Yes. Create a free account, use the playgrounds, and upgrade when you’re ready to scale.",
+      "One credit equals ₹1. Your wallet balance is shared across Speech to Text, Text to Speech, and LLM Assistant usage.",
   },
   {
-    question: "Do prices include taxes?",
+    question: "How is my usage calculated?",
     answer:
-      "Listed prices are indicative and may exclude applicable taxes. Final billing appears in the portal or enterprise agreement.",
+      "STT is measured by audio duration, TTS by generated characters, and LLM Assistant by processed tokens. Your portal shows usage records and remaining credits.",
   },
   {
-    question: "Can I change plans later?",
+    question: "What happens when my wallet runs low?",
     answer:
-      "You can move from Free to Pro in the portal. Enterprise changes are handled with our team.",
+      "You can add more credits from the portal and continue using the same APIs and playgrounds.",
+  },
+  {
+    question: "When should I request custom pricing?",
+    answer:
+      "Contact us when you need volume rates, dedicated support, or SLA options. Share your expected usage and requirements through the contact form so we can propose the right setup.",
   },
 ];
 
 export const pricingHighlights = [
-  "Credits for STT, TTS, and studio usage",
-  "Same APIs from prototype to production",
-  "Upgrade anytime from the portal",
+  "No monthly subscription",
+  "1 credit = ₹1",
+  "One wallet for STT, TTS, and LLM",
 ];

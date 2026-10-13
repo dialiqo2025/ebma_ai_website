@@ -13,7 +13,7 @@ const links = [
   { label: "Pricing", href: "/pricing" },
   { label: "Developers", href: DOCS_URL, external: true },
   { label: "Enterprise", href: "/#enterprise" },
-  { label: "Contact us", href: "/#contact" },
+  { label: "Contact us", href: "/contact" },
 ] as const;
 
 export function SiteHeader() {

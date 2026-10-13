@@ -44,4 +44,9 @@ export function docsUrl(path = "/") {
 
 export const docsPath = DOCS_URL;
 
-export const supportEmail = "hello@ebma.ai";
+export const supportEmail =
+  process.env.NEXT_PUBLIC_SUPPORT_EMAIL || "hello@ebma.ai";
+
+/** Fallback until the live recipient arrives with the public pricing response. */
+export const customPricingEmail =
+  process.env.NEXT_PUBLIC_CUSTOM_PRICING_TO_EMAIL || supportEmail;

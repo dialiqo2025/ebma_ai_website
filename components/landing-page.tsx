@@ -34,7 +34,6 @@ import {
   productLlmPath,
   productSttPath,
   productTtsPath,
-  supportEmail,
 } from "@/lib/site";
 
 function cx(...classes: (string | false | undefined)[]) {
@@ -594,7 +593,7 @@ export function LandingPage() {
             <Button variant="light" large href={portalSignupUrl}>
               Start building free <ArrowRight size={18} />
             </Button>
-            <Button variant="glass" large href={`mailto:${supportEmail}`}>
+            <Button variant="glass" large href="/contact">
               Talk to our team
             </Button>
           </div>
@@ -662,15 +661,15 @@ export function LandingPage() {
               <strong className="mb-[5px] text-[12px] uppercase tracking-[0.1em] text-[#5c6478]">
                 Company
               </strong>
-              <a href="#contact" className="text-[12px] text-[#6b7389] hover:text-[#121528]">
+              <Link href="/about" className="text-[12px] text-[#6b7389] hover:text-[#121528]">
                 About
-              </a>
-              <a href="#contact" className="text-[12px] text-[#6b7389] hover:text-[#121528]">
+              </Link>
+              <Link href="/contact" className="text-[12px] text-[#6b7389] hover:text-[#121528]">
                 Contact
-              </a>
-              <a href="#contact" className="text-[12px] text-[#6b7389] hover:text-[#121528]">
+              </Link>
+              <Link href="/careers" className="text-[12px] text-[#6b7389] hover:text-[#121528]">
                 Careers
-              </a>
+              </Link>
             </div>
           </div>
         </div>
@@ -682,9 +681,9 @@ export function LandingPage() {
         >
           <span>© {new Date().getFullYear()} ebma AI. All rights reserved.</span>
           <div className="flex gap-5">
-            <a href="#">Privacy</a>
-            <a href="#">Terms</a>
-            <a href="#">Security</a>
+            <Link href="/privacy" className="hover:text-[#121528]">Privacy Policy</Link>
+            <Link href="/terms" className="hover:text-[#121528]">Terms &amp; Conditions</Link>
+            <Link href="/security" className="hover:text-[#121528]">Security</Link>
           </div>
         </div>
       </footer>

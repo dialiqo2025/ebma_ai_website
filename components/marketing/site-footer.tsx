@@ -61,13 +61,13 @@ export function SiteFooter() {
             <strong className="mb-[5px] text-[12px] uppercase tracking-[0.1em] text-[#5c6478]">
               Company
             </strong>
-            <Link href="/#contact" className="text-[12px] text-[#6b7389] hover:text-[#121528]">
+            <Link href="/contact" className="text-[12px] text-[#6b7389] hover:text-[#121528]">
               Contact
             </Link>
-            <Link href="/#contact" className="text-[12px] text-[#6b7389] hover:text-[#121528]">
+            <Link href="/about" className="text-[12px] text-[#6b7389] hover:text-[#121528]">
               About
             </Link>
-            <Link href="/#contact" className="text-[12px] text-[#6b7389] hover:text-[#121528]">
+            <Link href="/careers" className="text-[12px] text-[#6b7389] hover:text-[#121528]">
               Careers
             </Link>
           </div>
@@ -81,9 +81,9 @@ export function SiteFooter() {
       >
         <span>© {new Date().getFullYear()} ebma AI. All rights reserved.</span>
         <div className="flex gap-5">
-          <a href="#">Privacy</a>
-          <a href="#">Terms</a>
-          <a href="#">Security</a>
+          <Link href="/privacy" className="hover:text-[#121528]">Privacy Policy</Link>
+          <Link href="/terms" className="hover:text-[#121528]">Terms &amp; Conditions</Link>
+          <Link href="/security" className="hover:text-[#121528]">Security</Link>
         </div>
       </div>
     </footer>

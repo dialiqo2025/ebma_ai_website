@@ -274,7 +274,7 @@ export const llmProduct: ProductPageContent = {
   description:
     "Build assistants that understand your domain—summarize conversations, answer with grounding, and connect tools—powered by modern LLM capabilities in the ebma stack.",
   primaryCta: { label: "Join the waitlist", hrefKey: "signup" },
-  secondaryCta: { label: "Talk to our team", href: "mailto:hello@ebma.ai" },
+  secondaryCta: { label: "Talk to our team", href: "/contact" },
   accent: "pink",
   highlights: [
     "Gemini-powered reasoning",
