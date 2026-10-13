@@ -12,7 +12,7 @@ import { DOCS_URL, portalLoginUrl, portalSignupUrl } from "@/lib/site";
 const links = [
   { label: "Pricing", href: "/pricing" },
   { label: "Developers", href: DOCS_URL, external: true },
-  { label: "Enterprise", href: "/#enterprise" },
+  // { label: "Enterprise", href: "/#enterprise" },
   { label: "Contact us", href: "/contact" },
 ] as const;
 
