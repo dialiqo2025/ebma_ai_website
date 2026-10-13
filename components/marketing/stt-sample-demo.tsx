@@ -329,7 +329,7 @@ export function SttSampleDemo() {
             className={cx(
               "rounded-full px-3.5 py-1.5 text-[12px] font-semibold",
               mode === "samples"
-                ? "bg-[linear-gradient(90deg,#3b82f6,#7c3aed)] text-white"
+                ? "bg-[linear-gradient(90deg,#3b82f6,#6542e8)] text-white"
                 : "text-[#6b7389]",
             )}
           >
@@ -344,7 +344,7 @@ export function SttSampleDemo() {
             className={cx(
               "rounded-full px-3.5 py-1.5 text-[12px] font-semibold",
               mode === "mic"
-                ? "bg-[linear-gradient(90deg,#3b82f6,#7c3aed)] text-white"
+                ? "bg-[linear-gradient(90deg,#3b82f6,#6542e8)] text-white"
                 : "text-[#6b7389]",
             )}
           >

@@ -1,3 +1,5 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
 
@@ -11,22 +13,18 @@ export function Brand({
   return (
     <Link
       href={href}
-      className="inline-flex w-max items-center gap-1.5"
-      aria-label="ebma AI home"
+      className="inline-flex w-max items-center"
+      aria-label="ebma.ai home"
     >
       <Image
-        src={compact ? "/ebma-mark.svg" : "/ebma-logo.svg"}
-        alt="ebma"
-        width={compact ? 40 : 112}
-        height={compact ? 40 : 40}
-        className="block object-contain"
+        src={compact ? "/ebma-icon.png" : "/ebma-logo-light.png"}
+        alt="ebma.ai"
+        width={compact ? 40 : 152}
+        height={compact ? 40 : 42}
+        className="block h-auto max-h-[42px] w-auto object-contain"
         priority
+        unoptimized
       />
-      {!compact && (
-        <span className="border-l border-border pl-2 font-heading text-[12px] font-semibold tracking-[0.18em] text-muted">
-          AI
-        </span>
-      )}
     </Link>
   );
 }

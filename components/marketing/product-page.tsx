@@ -29,7 +29,7 @@ const accentMap = {
   },
   violet: {
     glow: "rgba(124,58,237,.12)",
-    text: "text-[#7c3aed]",
+    text: "text-[#6542e8]",
     border: "border-[rgba(124,58,237,.28)]",
     soft: "bg-[rgba(124,58,237,.08)]",
   },
@@ -161,7 +161,7 @@ export function ProductPage({ product }: { product: ProductPageContent }) {
                 href={`/products/${item.slug}`}
                 className="rounded-[16px] border border-[#d5dbea] bg-white p-5 shadow-[0_8px_24px_rgba(18,21,40,.08)] transition duration-250 hover:-translate-y-0.5 hover:border-[#c5cce0] hover:shadow-[0_12px_32px_rgba(18,21,40,.1)]"
               >
-                <span className="text-[12px] font-extrabold uppercase tracking-[0.12em] text-[#6b5ce6]">
+                <span className="text-[12px] font-extrabold uppercase tracking-[0.12em] text-[#6542e8]">
                   {item.eyebrow}
                 </span>
                 <p className="mt-2 font-heading text-[20px] font-semibold text-[#121528]">
@@ -176,7 +176,7 @@ export function ProductPage({ product }: { product: ProductPageContent }) {
         </div>
       </section>
 
-      <section className="relative grid place-items-center overflow-hidden bg-[linear-gradient(135deg,#4033bd,#6d42d7_55%,#834ad9)] py-[90px] max-[560px]:py-[70px]">
+      <section className="relative grid place-items-center overflow-hidden bg-[linear-gradient(135deg,#4d32c8,#6542e8_55%,#6542e8)] py-[90px] max-[560px]:py-[70px]">
         <div className={cx(container, "relative z-[2] text-center")}>
           <h2 className="font-heading text-[clamp(32px,4vw,46px)] font-[620] leading-[1.1] tracking-[-0.04em] text-white">
             Ready to try {product.eyebrow.toLowerCase()}?

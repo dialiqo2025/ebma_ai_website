@@ -7,13 +7,13 @@ import { container, cx } from "@/lib/cn";
 
 const accentText = {
   cyan: "text-[#0284c7]",
-  violet: "text-[#7c3aed]",
+  violet: "text-[#6542e8]",
   pink: "text-[#db2777]",
 } as const;
 
 const accentBorder = {
   cyan: "border-[#0284c7]/45 bg-[rgba(2,132,199,.08)]",
-  violet: "border-[#7c3aed]/45 bg-[rgba(124,58,237,.08)]",
+  violet: "border-[#6542e8]/45 bg-[rgba(124,58,237,.08)]",
   pink: "border-[#db2777]/45 bg-[rgba(219,39,119,.08)]",
 } as const;
 

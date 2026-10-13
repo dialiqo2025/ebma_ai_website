@@ -12,7 +12,15 @@ export const metadata: Metadata = {
   title: "ebma AI — Voice & language intelligence",
   description:
     "Build intelligent voice and language experiences with ebma AI. Speech to text, text to speech, and conversational AI.",
-  icons: { icon: "/ebma-mark.svg" },
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/favicon.png", type: "image/png", sizes: "256x256" },
+      { url: "/ebma-icon.png", type: "image/png", sizes: "512x512" },
+    ],
+    apple: "/ebma-icon.png",
+    shortcut: "/favicon.ico",
+  },
 };
 
 export default function RootLayout({

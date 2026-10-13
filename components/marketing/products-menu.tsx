@@ -23,7 +23,7 @@ const productItems = [
     label: "Text to speech",
     description: "Natural voices, playback, and clone",
     icon: Volume2,
-    accent: "text-[#7c3aed] bg-[rgba(124,58,237,.1)] border-[rgba(124,58,237,.22)]",
+    accent: "text-[#6542e8] bg-[rgba(124,58,237,.1)] border-[rgba(124,58,237,.22)]",
   },
   {
     href: productLlmPath,

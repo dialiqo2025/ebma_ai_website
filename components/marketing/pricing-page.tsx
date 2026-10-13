@@ -22,9 +22,9 @@ export function PricingPage() {
       <SiteHeader />
 
       <section className="relative pt-20 max-[820px]:pt-[68px]">
-        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(91,79,233,.12),transparent_42%)]" />
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(101,66,232,.12),transparent_42%)]" />
         <div className={cx(container, "relative py-[70px] text-center max-[820px]:py-[70px]")}>
-          <div className="mx-auto inline-flex items-center gap-2 rounded-full border border-[rgba(155,92,246,.3)] bg-[rgba(91,79,233,.1)] px-3 py-2 text-[12px] font-[750] uppercase tracking-[0.1em] text-[#6b5ce6]">
+          <div className="mx-auto inline-flex items-center gap-2 rounded-full border border-[rgba(155,92,246,.3)] bg-[rgba(101,66,232,.1)] px-3 py-2 text-[12px] font-[750] uppercase tracking-[0.1em] text-[#6542e8]">
             <Sparkles size={14} /> Pricing
           </div>
           <h1 className="mx-auto mt-6 max-w-[780px] font-heading text-[clamp(40px,5vw,64px)] font-[650] leading-[1.05] tracking-[-0.05em] text-[#121528]">
@@ -60,16 +60,16 @@ export function PricingPage() {
                   className={cx(
                     "relative flex flex-col rounded-[20px] border p-6 transition duration-250",
                     plan.highlighted
-                      ? "border-[#7c3aed] bg-[linear-gradient(160deg,rgba(91,79,233,.08),#ffffff_45%)] shadow-[0_24px_60px_rgba(91,79,233,.12)]"
+                      ? "border-[#6542e8] bg-[linear-gradient(160deg,rgba(101,66,232,.08),#ffffff_45%)] shadow-[0_24px_60px_rgba(101,66,232,.12)]"
                       : "border-[#d5dbea] bg-white shadow-[0_8px_24px_rgba(18,21,40,.08)] hover:border-[#c5cce0]",
                   )}
                 >
                   {plan.highlighted && (
-                    <span className="absolute -top-3 left-6 rounded-full bg-[linear-gradient(90deg,#5b4fe9,#9b5cf6)] px-3 py-1 text-[11px] font-bold uppercase tracking-[0.08em] text-white">
+                    <span className="absolute -top-3 left-6 rounded-full bg-[linear-gradient(90deg,#6542e8,#b7a5ff)] px-3 py-1 text-[11px] font-bold uppercase tracking-[0.08em] text-white">
                       Most popular
                     </span>
                   )}
-                  <p className="text-[12px] font-extrabold uppercase tracking-[0.12em] text-[#6b5ce6]">
+                  <p className="text-[12px] font-extrabold uppercase tracking-[0.12em] text-[#6542e8]">
                     {plan.name}
                   </p>
                   <div className="mt-4 flex items-end gap-1.5">
@@ -113,7 +113,7 @@ export function PricingPage() {
       <section className="bg-bg py-[90px] max-[820px]:py-[70px]">
         <div className={cx(container, "grid grid-cols-2 gap-10 max-[820px]:grid-cols-1")}>
           <div>
-            <span className="text-[12px] font-extrabold uppercase tracking-[0.13em] text-[#6b5ce6]">
+            <span className="text-[12px] font-extrabold uppercase tracking-[0.13em] text-[#6542e8]">
               How billing works
             </span>
             <h2 className="mt-3 font-heading text-[clamp(28px,3.4vw,40px)] font-semibold tracking-[-0.035em] text-[#121528]">
@@ -157,7 +157,7 @@ export function PricingPage() {
       <section className="border-t border-[#d5dbea] bg-bg-deep py-[70px] max-[820px]:py-[72px]">
         <div className={container}>
           <div className="mb-10 max-w-[560px]">
-            <span className="text-[12px] font-extrabold uppercase tracking-[0.13em] text-[#6b5ce6]">
+            <span className="text-[12px] font-extrabold uppercase tracking-[0.13em] text-[#6542e8]">
               FAQ
             </span>
             <h2 className="mt-3 font-heading text-[clamp(28px,3.4vw,40px)] font-semibold tracking-[-0.035em] text-[#121528]">
@@ -172,7 +172,7 @@ export function PricingPage() {
                   key={faq.question}
                   className={cx(
                     "rounded-[14px] border bg-white transition-colors",
-                    open ? "border-[#7c3aed]/45 bg-[rgba(124,58,237,.06)]" : "border-[#d5dbea]",
+                    open ? "border-[#6542e8]/45 bg-[rgba(124,58,237,.06)]" : "border-[#d5dbea]",
                   )}
                 >
                   <button
@@ -211,7 +211,7 @@ export function PricingPage() {
         </div>
       </section>
 
-      <section className="relative grid place-items-center overflow-hidden bg-[linear-gradient(135deg,#4033bd,#6d42d7_55%,#834ad9)] py-[90px] max-[560px]:py-[70px]">
+      <section className="relative grid place-items-center overflow-hidden bg-[linear-gradient(135deg,#4d32c8,#6542e8_55%,#6542e8)] py-[90px] max-[560px]:py-[70px]">
         <div className={cx(container, "relative z-[2] text-center")}>
           <h2 className="font-heading text-[clamp(32px,4vw,46px)] font-[620] leading-[1.1] tracking-[-0.04em] text-white">
             Start free. Scale when it clicks.

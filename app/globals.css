@@ -1,23 +1,23 @@
 @import "tailwindcss";
 
 /*
- * EBMA marketing theme — classic logo indigo → violet.
- * Brand: #5B4FE9 → #9B5CF6 → #B978FF on warm ivory surfaces (light-only site).
- * Product accents (e.g. STT cyan) stay hardcoded in components where needed.
+ * ebma.ai marketing theme — brand kit:
+ * Primary #6542E8 · Deep #4D32C8 · Lavender #B7A5FF · Soft BG #F3F0FF · Slate #667085
+ * Light-only site. Product accents (e.g. STT cyan) stay hardcoded where needed.
  */
 @theme {
-  --color-bg: #f7f4ef;
-  --color-bg-deep: #f1ede7;
-  --color-surface: #fffefa;
-  --color-surface-2: #f1ede7;
-  --color-border: #e0dbd3;
-  --color-text: #242321;
-  --color-muted: #625f5a;
-  --color-faint: #827c74;
-  --color-brand-a: #5b4fe9;
-  --color-brand-b: #9b5cf6;
-  --color-brand-c: #b978ff;
-  --color-cyan: #b978ff;
+  --color-bg: #f3f0ff;
+  --color-bg-deep: #ebe6ff;
+  --color-surface: #ffffff;
+  --color-surface-2: #f3f0ff;
+  --color-border: #ddd6f5;
+  --color-text: #1d1b2e;
+  --color-muted: #667085;
+  --color-faint: #8b849c;
+  --color-brand-a: #6542e8;
+  --color-brand-b: #4d32c8;
+  --color-brand-c: #b7a5ff;
+  --color-cyan: #b7a5ff;
   --color-success: #147449;
   --color-danger: #b72143;
   --font-sans: var(--font-body), Arial, Helvetica, sans-serif;
@@ -59,7 +59,7 @@
 
   ::selection {
     color: var(--color-text);
-    background: #f1ede7;
+    background: #ebe6ff;
   }
 }
 
@@ -88,4 +88,23 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+/* Match portal primary button fill (solid brand primary). */
+.bg-brand-gradient {
+  background-color: var(--color-brand-a);
+  background-image: linear-gradient(
+    105deg,
+    var(--color-brand-a) 0%,
+    var(--color-brand-a) 55%,
+    var(--color-brand-a) 100%
+  );
+}
+.bg-brand-gradient-short {
+  background-color: var(--color-brand-a);
+  background-image: linear-gradient(
+    110deg,
+    var(--color-brand-a) 0%,
+    var(--color-brand-c) 100%
+  );
 }

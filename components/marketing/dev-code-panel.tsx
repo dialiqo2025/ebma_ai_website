@@ -95,7 +95,7 @@ print(transcript.text)`,
   curl: {
     label: "cURL",
     badge: "API",
-    badgeClass: "bg-[#5b4fe9]",
+    badgeClass: "bg-[#6542e8]",
     plain: `curl -X POST "https://api.ebma.ai/v1/speech/transcribe" \\
   -H "Authorization: Bearer $EBMA_API_KEY" \\
   -H "Accept: application/json" \\

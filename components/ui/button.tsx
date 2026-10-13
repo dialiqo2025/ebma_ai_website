@@ -14,11 +14,11 @@ const base =
 
 const variants = {
   primary:
-    "border-0 text-white bg-[linear-gradient(135deg,var(--color-brand-a),var(--color-brand-b))] shadow-[0_9px_28px_rgba(91,79,233,.22),inset_0_1px_rgba(255,255,255,.2)] hover:shadow-[0_12px_34px_rgba(91,79,233,.35),inset_0_1px_rgba(255,255,255,.25)]",
+    "border-0 text-white bg-brand-gradient shadow-[0_9px_28px_rgba(101,66,232,.25),inset_0_1px_rgba(255,255,255,.15)] hover:shadow-[0_12px_34px_rgba(101,66,232,.4),inset_0_1px_rgba(255,255,255,.2)]",
   outline: "border border-border bg-surface text-text shadow-[0_1px_2px_rgba(18,21,40,.04)]",
   ghost: "border border-border bg-transparent text-text",
-  quiet: "border border-black/8 bg-black/[0.03] text-[#2a3148]",
-  light: "border-0 bg-white text-[#4d3bc5]",
+  quiet: "border border-black/8 bg-black/[0.03] text-[#1d1b2e]",
+  light: "border-0 bg-white text-[#4d32c8]",
   glass: "border border-white/35 bg-white/15 text-white",
 } as const;
 

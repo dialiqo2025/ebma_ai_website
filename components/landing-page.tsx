@@ -51,9 +51,9 @@ const serviceAccents = {
     waveBar: "bg-[linear-gradient(#38bdf8,#0284c7)]",
   },
   violet: {
-    glow: "bg-[#7c3aed]",
-    accent: "text-[#7c3aed]",
-    waveBar: "bg-[linear-gradient(#a771f1,#5b4fe9)]",
+    glow: "bg-[#6542e8]",
+    accent: "text-[#6542e8]",
+    waveBar: "bg-[linear-gradient(#a771f1,#6542e8)]",
   },
   pink: {
     glow: "bg-[#db2777]",
@@ -103,8 +103,8 @@ export function LandingPage() {
     <main className="overflow-hidden bg-bg">
       <SiteHeader />
 
-      <section className="relative min-h-[850px] bg-[radial-gradient(circle_at_72%_32%,rgba(91,79,233,.12),transparent_29%),linear-gradient(180deg,#f7f8fc,#eef1f8)] pt-20 max-[820px]:min-h-0 max-[820px]:pt-[68px] max-[560px]:min-h-0">
-        <div className="pointer-events-none absolute -left-[380px] -top-[250px] h-[760px] w-[760px] rounded-full bg-[#4632d4] opacity-[.08] blur-[160px]" />
+      <section className="relative min-h-[850px] bg-[radial-gradient(circle_at_72%_32%,rgba(101,66,232,.12),transparent_29%),linear-gradient(180deg,#f7f8fc,#eef1f8)] pt-20 max-[820px]:min-h-0 max-[820px]:pt-[68px] max-[560px]:min-h-0">
+        <div className="pointer-events-none absolute -left-[380px] -top-[250px] h-[760px] w-[760px] rounded-full bg-[#4d32c8] opacity-[.08] blur-[160px]" />
         <div
           className="pointer-events-none absolute inset-0 opacity-[.35] [background-image:linear-gradient(rgba(130,140,190,.12)_1px,transparent_1px),linear-gradient(90deg,rgba(130,140,190,.12)_1px,transparent_1px)] [background-size:72px_72px] [mask-image:linear-gradient(to_bottom,black,transparent_78%)]"
           aria-hidden
@@ -116,7 +116,7 @@ export function LandingPage() {
           )}
         >
           <div className="relative z-[2] animate-[fade-up_.8s_ease_both] max-[820px]:min-w-0 max-[820px]:text-center">
-            <div className="mx-auto flex w-max items-center gap-2 rounded-full border border-[rgba(155,92,246,.3)] bg-[rgba(91,79,233,.1)] px-3 py-2 text-[12px] font-[750] uppercase tracking-[0.1em] text-[#6b5ce6] max-[820px]:mx-auto">
+            <div className="mx-auto flex w-max items-center gap-2 rounded-full border border-[rgba(155,92,246,.3)] bg-[rgba(101,66,232,.1)] px-3 py-2 text-[12px] font-[750] uppercase tracking-[0.1em] text-[#6542e8] max-[820px]:mx-auto">
               <Sparkles size={14} /> One platform. Every conversation.
             </div>
             <h1 className="my-[26px] mb-6 font-heading text-[clamp(50px,5vw,70px)] font-[650] leading-[1.03] tracking-[-0.055em] text-[#121528] max-[560px]:text-[38px] max-[560px]:[overflow-wrap:anywhere]">
@@ -196,7 +196,7 @@ export function LandingPage() {
                   <span className="text-[#5c6478]">● Ready</span>
                 </div>
                 <div className="relative my-4 rounded-[13px] border border-[#e2e7f2] bg-[#f8fafc] px-[22px] pb-[15px] pt-6">
-                  <div className="absolute left-[11px] top-[5px] font-[500] font-[Georgia] text-[31px] text-[#6b5ce6]">
+                  <div className="absolute left-[11px] top-[5px] font-[500] font-[Georgia] text-[31px] text-[#6542e8]">
                     “
                   </div>
                   <p className="m-0 font-heading text-base font-medium leading-[1.6] text-[#121528]">
@@ -220,7 +220,7 @@ export function LandingPage() {
                     {Array.from({ length: 42 }, (_, i) => (
                       <i
                         key={i}
-                        className="min-w-0.5 w-0.5 rounded bg-[linear-gradient(#a771f1,#5b4fe9)]"
+                        className="min-w-0.5 w-0.5 rounded bg-[linear-gradient(#a771f1,#6542e8)]"
                         style={{ height: `${12 + ((i * 17) % 32)}px` }}
                       />
                     ))}
@@ -235,10 +235,10 @@ export function LandingPage() {
                 </div>
               </div>
             </div>
-            <div className="absolute -left-9 bottom-[75px] flex items-center gap-[7px] rounded-[10px] border border-[#d5dbea] bg-white/95 px-[13px] py-2.5 text-[12px] text-[#121528] shadow-[0_15px_30px_rgba(18,21,40,.1)] max-[1050px]:left-[-10px] max-[560px]:hidden [&_svg]:text-[#7c3aed]">
+            <div className="absolute -left-9 bottom-[75px] flex items-center gap-[7px] rounded-[10px] border border-[#d5dbea] bg-white/95 px-[13px] py-2.5 text-[12px] text-[#121528] shadow-[0_15px_30px_rgba(18,21,40,.1)] max-[1050px]:left-[-10px] max-[560px]:hidden [&_svg]:text-[#6542e8]">
               <AudioLines size={16} /> Streaming
             </div>
-            <div className="absolute -right-[19px] top-[84px] flex items-center gap-[7px] rounded-[10px] border border-[#d5dbea] bg-white/95 px-[13px] py-2.5 text-[12px] text-[#121528] shadow-[0_15px_30px_rgba(18,21,40,.1)] max-[560px]:hidden [&_svg]:text-[#7c3aed]">
+            <div className="absolute -right-[19px] top-[84px] flex items-center gap-[7px] rounded-[10px] border border-[#d5dbea] bg-white/95 px-[13px] py-2.5 text-[12px] text-[#121528] shadow-[0_15px_30px_rgba(18,21,40,.1)] max-[560px]:hidden [&_svg]:text-[#6542e8]">
               <Sparkles size={16} /> AI enriched
             </div>
           </div>
@@ -279,7 +279,7 @@ export function LandingPage() {
         <div className={container}>
           <div className="mb-[55px] flex items-end justify-between max-[820px]:block">
             <div>
-              <span className="inline-flex items-center gap-[7px] text-[12px] font-extrabold uppercase tracking-[0.13em] text-[#6b5ce6]">
+              <span className="inline-flex items-center gap-[7px] text-[12px] font-extrabold uppercase tracking-[0.13em] text-[#6542e8]">
                 The ebma intelligence stack
               </span>
               <h2 className="mt-[15px] font-heading text-[clamp(35px,4vw,50px)] font-semibold leading-[1.12] tracking-[-0.04em] text-[#121528] max-[560px]:text-[34px]">
@@ -364,7 +364,7 @@ export function LandingPage() {
                           Summarize the customer&apos;s request
                         </div>
                         <div className="flex max-w-[90%] items-start gap-1.5 rounded-lg border border-[rgba(124,58,237,.25)] bg-[rgba(124,58,237,.08)] px-2.5 py-2 text-[12px] leading-[1.4] text-[#121528]">
-                          <WandSparkles size={14} className="min-w-[14px] text-[#7c3aed]" />{" "}
+                          <WandSparkles size={14} className="min-w-[14px] text-[#6542e8]" />{" "}
                           The customer would like to upgrade their plan...
                         </div>
                       </div>
@@ -398,12 +398,12 @@ export function LandingPage() {
       </section>
 
       <section
-        className="relative bg-bg-deep py-[90px] before:pointer-events-none before:absolute before:inset-0 before:bg-[radial-gradient(circle_at_80%_50%,rgba(91,79,233,.13),transparent_30%)] before:content-[''] max-[820px]:py-[90px]"
+        className="relative bg-bg-deep py-[90px] before:pointer-events-none before:absolute before:inset-0 before:bg-[radial-gradient(circle_at_80%_50%,rgba(101,66,232,.13),transparent_30%)] before:content-[''] max-[820px]:py-[90px]"
         id="developers"
       >
         <div className={cx(container, "relative grid grid-cols-[0.9fr_1.1fr] items-center gap-[95px] max-[820px]:grid-cols-1 max-[820px]:gap-[55px]")}>
           <div className="max-[820px]:text-center">
-            <span className="inline-flex items-center gap-[7px] text-[12px] font-extrabold uppercase tracking-[0.13em] text-[#6b5ce6] max-[820px]:justify-center">
+            <span className="inline-flex items-center gap-[7px] text-[12px] font-extrabold uppercase tracking-[0.13em] text-[#6542e8] max-[820px]:justify-center">
               <Braces size={14} /> Built for developers
             </span>
             <h2 className="my-[17px] mb-[22px] font-heading text-[48px] font-semibold leading-[1.12] tracking-[-0.04em] text-[#121528] max-[560px]:text-[34px]">
@@ -420,7 +420,7 @@ export function LandingPage() {
             </p>
             <div className="my-[34px] grid gap-5 max-[820px]:mx-auto max-[820px]:max-w-[480px] max-[820px]:text-left">
               <div className="flex items-center gap-3.5">
-                <span className="grid h-10 w-10 place-items-center rounded-[11px] border border-[#e2e7f2] bg-white text-[#7c3aed]">
+                <span className="grid h-10 w-10 place-items-center rounded-[11px] border border-[#e2e7f2] bg-white text-[#6542e8]">
                   <Zap size={18} />
                 </span>
                 <p className="m-0 text-[12px] text-[#5c6478]">
@@ -431,7 +431,7 @@ export function LandingPage() {
                 </p>
               </div>
               <div className="flex items-center gap-3.5">
-                <span className="grid h-10 w-10 place-items-center rounded-[11px] border border-[#e2e7f2] bg-white text-[#7c3aed]">
+                <span className="grid h-10 w-10 place-items-center rounded-[11px] border border-[#e2e7f2] bg-white text-[#6542e8]">
                   <ShieldCheck size={18} />
                 </span>
                 <p className="m-0 text-[12px] text-[#5c6478]">
@@ -442,7 +442,7 @@ export function LandingPage() {
                 </p>
               </div>
               <div className="flex items-center gap-3.5">
-                <span className="grid h-10 w-10 place-items-center rounded-[11px] border border-[#e2e7f2] bg-white text-[#7c3aed]">
+                <span className="grid h-10 w-10 place-items-center rounded-[11px] border border-[#e2e7f2] bg-white text-[#6542e8]">
                   <Blocks size={18} />
                 </span>
                 <p className="m-0 text-[12px] text-[#5c6478]">
@@ -458,13 +458,13 @@ export function LandingPage() {
                 href={DOCS_URL}
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center gap-2.5 text-xs font-bold text-[#6b5ce6]"
+                className="inline-flex items-center gap-2.5 text-xs font-bold text-[#6542e8]"
               >
                 Read the docs <MoveRight size={18} />
               </a>
               <a
                 href={portalPlatformUrl}
-                className="inline-flex items-center gap-2.5 text-xs font-bold text-[#5c6478] hover:text-[#6b5ce6]"
+                className="inline-flex items-center gap-2.5 text-xs font-bold text-[#5c6478] hover:text-[#6542e8]"
               >
                 Open the playground <MoveRight size={18} />
               </a>
@@ -477,7 +477,7 @@ export function LandingPage() {
       <section className="bg-bg py-[80px] max-[820px]:py-[90px]" id="enterprise">
         <div className={container}>
           <div className="text-center">
-            <span className="inline-flex items-center gap-[7px] text-[12px] font-extrabold uppercase tracking-[0.13em] text-[#6b5ce6]">
+            <span className="inline-flex items-center gap-[7px] text-[12px] font-extrabold uppercase tracking-[0.13em] text-[#6542e8]">
               Made for real work
             </span>
             <h2 className="my-[15px] font-heading text-[clamp(35px,4vw,50px)] font-semibold leading-[1.12] tracking-[-0.04em] text-[#121528] max-[560px]:text-[34px]">
@@ -489,8 +489,8 @@ export function LandingPage() {
           </div>
           <div className="mt-[50px] grid grid-cols-[1.25fr_1fr_1fr] gap-[18px] max-[820px]:grid-cols-2 max-[560px]:grid-cols-1">
             <div className="relative min-h-[384px] overflow-hidden rounded-[18px] border border-[#d5dbea] bg-white p-[27px] shadow-[0_8px_24px_rgba(18,21,40,.08)] max-[820px]:col-span-full max-[560px]:col-span-auto">
-              <div className="relative -mx-[27px] -mt-[27px] mb-[26px] h-[152px] border-b border-[#e2e7f2] bg-[radial-gradient(circle_at_45%_55%,rgba(91,79,233,.12),transparent_42%),#f0f3fa]">
-                <div className="absolute left-[65px] top-[37px] grid h-[76px] w-[76px] place-items-center rounded-full border border-[rgba(124,58,237,.35)] bg-white text-[#7c3aed] shadow-[0_0_0_10px_rgba(91,79,233,.06),0_0_0_20px_rgba(91,79,233,.03)]">
+              <div className="relative -mx-[27px] -mt-[27px] mb-[26px] h-[152px] border-b border-[#e2e7f2] bg-[radial-gradient(circle_at_45%_55%,rgba(101,66,232,.12),transparent_42%),#f0f3fa]">
+                <div className="absolute left-[65px] top-[37px] grid h-[76px] w-[76px] place-items-center rounded-full border border-[rgba(124,58,237,.35)] bg-white text-[#6542e8] shadow-[0_0_0_10px_rgba(101,66,232,.06),0_0_0_20px_rgba(101,66,232,.03)]">
                   <Headphones />
                   <span className="absolute bottom-[5px] right-[3px] h-[13px] w-[13px] rounded-full border-[3px] border-white bg-success" />
                 </div>
@@ -508,7 +508,7 @@ export function LandingPage() {
                   </div>
                 </div>
               </div>
-              <span className="text-[12px] font-extrabold uppercase tracking-[0.12em] text-[#6b5ce6]">
+              <span className="text-[12px] font-extrabold uppercase tracking-[0.12em] text-[#6542e8]">
                 Customer experience
               </span>
               <h3 className="my-3 font-heading text-xl font-semibold leading-[1.3] tracking-[-0.02em] text-[#121528]">
@@ -525,10 +525,10 @@ export function LandingPage() {
               </a>
             </div>
             <div className="relative min-h-[384px] overflow-hidden rounded-[18px] border border-[#d5dbea] bg-white p-[27px] shadow-[0_8px_24px_rgba(18,21,40,.08)]">
-              <div className="mb-[65px] grid h-[46px] w-[46px] place-items-center rounded-xl border border-[#e2e7f2] bg-[#f0f3fa] text-[#7c3aed]">
+              <div className="mb-[65px] grid h-[46px] w-[46px] place-items-center rounded-xl border border-[#e2e7f2] bg-[#f0f3fa] text-[#6542e8]">
                 <MessageSquareText />
               </div>
-              <span className="text-[12px] font-extrabold uppercase tracking-[0.12em] text-[#6b5ce6]">
+              <span className="text-[12px] font-extrabold uppercase tracking-[0.12em] text-[#6542e8]">
                 Conversational AI
               </span>
               <h3 className="my-3 font-heading text-xl font-semibold leading-[1.3] tracking-[-0.02em] text-[#121528]">
@@ -545,10 +545,10 @@ export function LandingPage() {
               </a>
             </div>
             <div className="relative min-h-[384px] overflow-hidden rounded-[18px] border border-[#d5dbea] bg-white p-[27px] shadow-[0_8px_24px_rgba(18,21,40,.08)]">
-              <div className="mb-[65px] grid h-[46px] w-[46px] place-items-center rounded-xl border border-[#e2e7f2] bg-[#f0f3fa] text-[#7c3aed]">
+              <div className="mb-[65px] grid h-[46px] w-[46px] place-items-center rounded-xl border border-[#e2e7f2] bg-[#f0f3fa] text-[#6542e8]">
                 <Code2 />
               </div>
-              <span className="text-[12px] font-extrabold uppercase tracking-[0.12em] text-[#6b5ce6]">
+              <span className="text-[12px] font-extrabold uppercase tracking-[0.12em] text-[#6542e8]">
                 Product teams
               </span>
               <h3 className="my-3 font-heading text-xl font-semibold leading-[1.3] tracking-[-0.02em] text-[#121528]">
@@ -570,7 +570,7 @@ export function LandingPage() {
       </section>
 
       <section
-        className="relative grid h-[510px] place-items-center overflow-hidden bg-[linear-gradient(135deg,#4033bd,#6d42d7_55%,#834ad9)] after:pointer-events-none after:absolute after:inset-0 after:[background-image:linear-gradient(rgba(255,255,255,.04)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,.04)_1px,transparent_1px)] after:[background-size:58px_58px] after:content-[''] max-[560px]:h-[540px]"
+        className="relative grid h-[510px] place-items-center overflow-hidden bg-[linear-gradient(135deg,#4d32c8,#6542e8_55%,#6542e8)] after:pointer-events-none after:absolute after:inset-0 after:[background-image:linear-gradient(rgba(255,255,255,.04)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,.04)_1px,transparent_1px)] after:[background-size:58px_58px] after:content-[''] max-[560px]:h-[540px]"
         id="contact"
       >
         <div className="pointer-events-none absolute -left-[260px] -top-[25px] h-[560px] w-[560px] rounded-full border border-white/20" />

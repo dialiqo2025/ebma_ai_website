@@ -128,7 +128,7 @@ export function TtsSampleDemo() {
     <div className="overflow-hidden rounded-[20px] border border-[#d5dbea] bg-white shadow-[0_20px_50px_rgba(18,21,40,.1)]">
       <div className="flex flex-wrap items-center justify-between gap-3 border-b border-[#e2e7f2] bg-[#f8fafc] px-5 py-4">
         <div>
-          <p className="text-[12px] font-extrabold uppercase tracking-[0.12em] text-[#7c3aed]">
+          <p className="text-[12px] font-extrabold uppercase tracking-[0.12em] text-[#6542e8]">
             Live TTS trial
           </p>
           <p className="mt-1 text-[13px] text-[#6b7389]">
@@ -147,7 +147,7 @@ export function TtsSampleDemo() {
               className={cx(
                 "rounded-full border px-3 py-1.5 text-[12px] font-semibold transition",
                 sampleId === sample.id
-                  ? "border-[#7c3aed] bg-[rgba(124,58,237,.1)] text-[#121528]"
+                  ? "border-[#6542e8] bg-[rgba(124,58,237,.1)] text-[#121528]"
                   : "border-[#d5dbea] bg-white text-[#5c6478] hover:border-[#c5cce0] hover:bg-[#f0f3fa]",
               )}
             >
@@ -164,7 +164,7 @@ export function TtsSampleDemo() {
           onChange={(e) => setText(e.target.value.slice(0, MAX_CHARS))}
           rows={4}
           disabled={exhausted}
-          className="w-full resize-none rounded-xl border border-[#d5dbea] bg-[#f8fafc] px-4 py-3 text-[15px] leading-relaxed text-[#121528] outline-none placeholder:text-[#8a92a8] focus:border-[#9B5CF6] disabled:opacity-60"
+          className="w-full resize-none rounded-xl border border-[#d5dbea] bg-[#f8fafc] px-4 py-3 text-[15px] leading-relaxed text-[#121528] outline-none placeholder:text-[#8a92a8] focus:border-[#B7A5FF] disabled:opacity-60"
           placeholder="Type something to generate…"
         />
         <div className="mt-2 flex items-center justify-between text-[12px] text-[#8a92a8]">
