@@ -138,7 +138,7 @@ export function ContactPage() {
 
             <div className="mt-7 rounded-[16px] border border-[#d8d2ee] bg-[rgba(101,66,232,.07)] p-4">
               <p className="text-[10px] font-extrabold uppercase tracking-[0.12em] text-[#6542e8]">Email destination</p>
-              <p className="mt-1.5 text-[13px] font-semibold text-[#343247]">{contactEmail}</p>
+              <a href={`mailto:${contactEmail}`} className="mt-1.5 inline-block text-[13px] font-semibold text-[#343247] underline decoration-[#b7a5ff] underline-offset-4 hover:text-[#6542e8]">{contactEmail}</a>
               <p className="mt-1 text-[11px] leading-[1.6] text-[#7a8299]">Loaded from the same backend configuration used when the form is submitted.</p>
             </div>
           </div>
@@ -204,7 +204,17 @@ export function ContactPage() {
 
                 <label className="flex items-start gap-2.5 text-[11px] leading-[1.6] text-[#667085]"><input className="mt-0.5 size-4 shrink-0 accent-[#6542e8]" type="checkbox" name="consent" required />I agree that ebma AI may use these details to respond to my inquiry.</label>
 
-                {error && <p role="alert" className="rounded-xl border border-[#f0c6cf] bg-[#fff1f3] px-4 py-3 text-[12px] text-[#a11d3f]">{error}</p>}
+                {error && (
+                  <div role="alert" className="rounded-xl border border-[#f0c6cf] bg-[#fff1f3] px-4 py-3 text-[12px] leading-[1.65] text-[#a11d3f]">
+                    <p>{error}</p>
+                    <a
+                      href={`mailto:${contactEmail}?subject=${encodeURIComponent("Website inquiry for ebma AI")}`}
+                      className="mt-1.5 inline-flex font-bold underline underline-offset-2"
+                    >
+                      Email {contactEmail} directly
+                    </a>
+                  </div>
+                )}
 
                 <button type="submit" disabled={sending} className="inline-flex min-h-13 items-center justify-center gap-2 rounded-[14px] bg-brand-gradient px-6 text-sm font-bold text-white shadow-[0_10px_28px_rgba(101,66,232,.26)] transition hover:-translate-y-px disabled:cursor-not-allowed disabled:opacity-60 disabled:hover:translate-y-0">
                   {sending ? "Sending inquiry…" : "Send inquiry"} <Send size={16} aria-hidden="true" />
