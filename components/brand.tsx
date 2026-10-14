@@ -11,17 +11,13 @@ export function Brand({
   href?: string;
 }) {
   return (
-    <Link
-      href={href}
-      className="inline-flex w-max items-center"
-      aria-label="ebma.ai home"
-    >
+    <Link href={href} className="inline-flex w-max items-center" aria-label="ebma.ai home">
       <Image
-        src={compact ? "/ebma-icon.png" : "/ebma-logo-light.png"}
+        src={compact ? "/ebma-icon.png" : "/ebma-ai-logo-light-mode-transparent.png"}
         alt="ebma.ai"
-        width={compact ? 40 : 152}
-        height={compact ? 40 : 42}
-        className="block h-auto max-h-[42px] w-auto object-contain"
+        width={compact ? 40 : 160}
+        height={compact ? 40 : 44}
+        className="block h-auto max-h-[44px] w-auto object-contain"
         priority
         unoptimized
       />
