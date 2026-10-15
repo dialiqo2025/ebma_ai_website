@@ -25,6 +25,19 @@ export const portalSttUrl = portalPath("/platform/speech-to-text");
 export const portalTtsUrl = portalPath("/platform/text-to-speech");
 export const portalPlatformUrl = portalPath("/platform");
 
+/** Portal dashboard (authenticated workspace home) */
+export const portalDashboardUrl = portalPlatformUrl;
+
+/** Shared cookie set by the portal on `.ebma.ai` after login. */
+export const PORTAL_SESSION_HINT_COOKIE = "ebma-session-active";
+
+export function hasPortalSessionHint(): boolean {
+  if (typeof document === "undefined") return false;
+  return new RegExp(`(?:^|; )${PORTAL_SESSION_HINT_COOKIE}=1(?:;|$)`).test(
+    document.cookie,
+  );
+}
+
 /** Marketing product pages */
 export const productSttPath = "/products/speech-to-text";
 export const productTtsPath = "/products/text-to-speech";

@@ -7,7 +7,13 @@ import { Brand } from "@/components/brand";
 import { ProductsMenu } from "@/components/marketing/products-menu";
 import { Button } from "@/components/ui/button";
 import { container, cx } from "@/lib/cn";
-import { DOCS_URL, portalLoginUrl, portalSignupUrl } from "@/lib/site";
+import {
+  DOCS_URL,
+  hasPortalSessionHint,
+  portalDashboardUrl,
+  portalLoginUrl,
+  portalSignupUrl,
+} from "@/lib/site";
 
 const links = [
   { label: "Pricing", href: "/pricing" },
@@ -18,6 +24,11 @@ const links = [
 
 export function SiteHeader() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [showDashboard, setShowDashboard] = useState(false);
+
+  useEffect(() => {
+    setShowDashboard(hasPortalSessionHint());
+  }, []);
 
   useEffect(() => {
     if (!menuOpen) return;
@@ -59,15 +70,35 @@ export function SiteHeader() {
         </div>
 
         <div className="flex items-center gap-[13px] max-[820px]:hidden">
-          <a
-            href={portalLoginUrl}
-            className="px-2.5 py-2.5 text-[13px] font-[650] text-[#5c6478] transition-colors hover:text-[#121528]"
-          >
-            Log in
-          </a>
-          <Button variant="primary" href={portalSignupUrl}>
-            Start building <ArrowRight size={16} />
-          </Button>
+          {showDashboard ? (
+            <Button
+              variant="primary"
+              href={portalDashboardUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Go to dashboard <ArrowRight size={16} />
+            </Button>
+          ) : (
+            <>
+              <a
+                href={portalLoginUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-2.5 py-2.5 text-[13px] font-[650] text-[#5c6478] transition-colors hover:text-[#121528]"
+              >
+                Log in
+              </a>
+              <Button
+                variant="primary"
+                href={portalSignupUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Start building <ArrowRight size={16} />
+              </Button>
+            </>
+          )}
         </div>
 
         <button
@@ -114,13 +145,41 @@ export function SiteHeader() {
               </Link>
             ),
           )}
-          <div className="mt-2 grid grid-cols-[1fr_1.3fr] gap-2">
-            <Button variant="ghost" href={portalLoginUrl}>
-              Log in
-            </Button>
-            <Button variant="primary" href={portalSignupUrl}>
-              Start building <ArrowRight size={16} />
-            </Button>
+          <div
+            className={cx(
+              "mt-2 gap-2",
+              showDashboard ? "grid grid-cols-1" : "grid grid-cols-[1fr_1.3fr]",
+            )}
+          >
+            {showDashboard ? (
+              <Button
+                variant="primary"
+                href={portalDashboardUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Go to dashboard <ArrowRight size={16} />
+              </Button>
+            ) : (
+              <>
+                <Button
+                  variant="ghost"
+                  href={portalLoginUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Log in
+                </Button>
+                <Button
+                  variant="primary"
+                  href={portalSignupUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Start building <ArrowRight size={16} />
+                </Button>
+              </>
+            )}
           </div>
         </div>
       </div>
