@@ -283,7 +283,7 @@ export function LanguagesCarousel({ variant = "section" }: LanguagesCarouselProp
     <>
       <div
         ref={stageRef}
-        className={` relative mx-auto select-none overflow-hidden bg-transparent`}
+        className={` relative mx-auto select-none bg-transparent`}
         style={{
           width: isHero ? "100%" : "min(100%, 720px)",
           height: stageHeight,
@@ -391,7 +391,7 @@ export function LanguagesCarousel({ variant = "section" }: LanguagesCarouselProp
       {active && (
         <div
           className={`mx-auto flex max-w-[520px] flex-col items-center text-center ${
-            isHero ? "mt-4" : "mt-7"
+            isHero ? "pt-9" : "mt-7"
           }`}
         >
           <div className="flex items-center gap-3">
@@ -430,7 +430,8 @@ export function LanguagesCarousel({ variant = "section" }: LanguagesCarouselProp
           )}
           {isHero && (
             <p className="m-0 mt-3 text-[12px] font-medium text-[#7a8299]">
-              {languages.length} Indian languages supported
+              30+ languages supported
+              {/* {languages.length} languages supported */}
             </p>
           )}
         </div>

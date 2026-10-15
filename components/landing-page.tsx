@@ -100,7 +100,7 @@ export function LandingPage() {
     <main className="overflow-hidden bg-bg">
       <SiteHeader />
 
-      <section className="relative min-h-[850px] bg-[radial-gradient(circle_at_72%_32%,rgba(101,66,232,.12),transparent_29%),linear-gradient(180deg,#f7f8fc,#eef1f8)] pt-20 max-[820px]:min-h-0 max-[820px]:pt-[68px] max-[560px]:min-h-0">
+      <section className="relative min-h-[750px] bg-[radial-gradient(circle_at_72%_32%,rgba(101,66,232,.12),transparent_29%),linear-gradient(180deg,#f7f8fc,#eef1f8)] pt-20 max-[820px]:min-h-0 max-[820px]:pt-[68px] max-[560px]:min-h-0">
         <div className="pointer-events-none absolute -left-[380px] -top-[250px] h-[760px] w-[760px] rounded-full bg-[#4d32c8] opacity-[.08] blur-[160px]" />
         <div
           className="pointer-events-none absolute inset-0 opacity-[.35] [background-image:linear-gradient(rgba(130,140,190,.12)_1px,transparent_1px),linear-gradient(90deg,rgba(130,140,190,.12)_1px,transparent_1px)] [background-size:72px_72px] [mask-image:linear-gradient(to_bottom,black,transparent_78%)]"
@@ -109,7 +109,7 @@ export function LandingPage() {
         <div
           className={cx(
             container,
-            "relative grid min-h-[600px] grid-cols-2 items-center gap-[62px]  max-[1050px]:gap-[35px] max-[820px]:grid-cols-1 max-[820px]:px-0 max-[820px]:py-[90px] max-[820px]:pb-[65px] max-[560px]:gap-[55px] max-[560px]:pt-[75px]",
+            "relative grid min-h-[600px] grid-cols-2 items-center gap-[62px]  max-[1050px]:gap-[35px] max-[820px]:grid-cols-1 max-[820px]:px-0 max-[820px]:py-[60px] pt-[50px] max-[820px]:pb-[65px] max-[560px]:gap-[55px] max-[560px]:pt-[75px]",
           )}
         >
           <div className="relative z-[2] animate-[fade-up_.8s_ease_both] max-[820px]:min-w-0 max-[820px]:text-center">
@@ -125,7 +125,9 @@ export function LandingPage() {
             </h1>
             <p className="m-0 max-w-[570px] text-lg leading-[1.7] text-[#5c6478] max-[820px]:mx-auto max-[560px]:text-[15px]">
               Power the next generation of voice and language experiences with AI
-              that listens, speaks, and understands.
+              that listens, speaks, and understands. Capture speech in real time,
+              turn text into natural voices, and build assistants that follow
+              context—so every product conversation feels clear, fast, and human.
             </p>
             <div className="mt-[34px] flex gap-3 max-[820px]:justify-center max-[560px]:flex-col">
               <Button variant="primary" large href={portalSignupUrl} className="max-[560px]:w-full">
@@ -243,7 +245,7 @@ export function LandingPage() {
             */}
           </div>
         </div>
-        <div
+        {/* <div
           className={cx(
             container,
             "relative flex min-h-[100px] items-center justify-between border-t border-[#d5dbea] text-[#6b7389] max-[820px]:min-h-[130px] max-[820px]:flex-col max-[820px]:justify-center max-[820px]:gap-[17px]",
@@ -269,7 +271,7 @@ export function LandingPage() {
               Enterprise
             </span>
           </div>
-        </div>
+        </div> */}
       </section>
 
       {/* <LanguagesCarousel /> */}

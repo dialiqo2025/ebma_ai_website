@@ -36,6 +36,16 @@ const LANGUAGE_INITIALS: Record<string, string> = {
   hne: "अ",
   bgc: "अ",
   bhb: "अ",
+  // International showcase languages
+  es: "A",
+  fr: "A",
+  de: "A",
+  ar: "ا",
+  ja: "あ",
+  zh: "中",
+  ko: "가",
+  ru: "А",
+  pt: "A",
 };
 
 /** Native sample phrases for interactive honeycomb preview. */
@@ -67,6 +77,15 @@ const LANGUAGE_SAMPLES: Record<string, string> = {
   hne: "नमस्कार",
   bgc: "राम राम",
   bhb: "जय श्री",
+  es: "¡Hola!",
+  fr: "Bonjour",
+  de: "Hallo",
+  ar: "مرحبا",
+  ja: "こんにちは",
+  zh: "你好",
+  ko: "안녕하세요",
+  ru: "Привет",
+  pt: "Olá",
 };
 
 /**
@@ -92,6 +111,19 @@ function buildLanguage(code: string, name: string): SupportedLanguage {
     sample: languageSample(code, name),
   };
 }
+
+/** Extra languages shown on the marketing honeycomb (beyond STT India catalog). */
+export const showcaseLanguages: SupportedLanguage[] = [
+  buildLanguage("es", "Spanish"),
+  buildLanguage("fr", "French"),
+  buildLanguage("de", "German"),
+  buildLanguage("ar", "Arabic"),
+  buildLanguage("ja", "Japanese"),
+  buildLanguage("zh", "Mandarin"),
+  buildLanguage("ko", "Korean"),
+  buildLanguage("ru", "Russian"),
+  buildLanguage("pt", "Portuguese"),
+];
 
 export const supportedLanguages: SupportedLanguage[] = [
   buildLanguage("hi", "Hindi"),
@@ -121,12 +153,22 @@ export const supportedLanguages: SupportedLanguage[] = [
   buildLanguage("hne", "Chhattisgarhi"),
   buildLanguage("bgc", "Haryanvi"),
   buildLanguage("bhb", "Bhili"),
+  ...showcaseLanguages,
 ];
+
+/** Merge API/STT catalog with marketing showcase languages (no duplicates). */
+export function withShowcaseLanguages(list: SupportedLanguage[]): SupportedLanguage[] {
+  const seen = new Set(list.map((item) => item.code));
+  const extras = showcaseLanguages.filter((item) => !seen.has(item.code));
+  return extras.length ? [...list, ...extras] : list;
+}
 
 export function mapApiLanguages(
   items: Array<{ code: string; name: string }>,
 ): SupportedLanguage[] {
-  return items
-    .filter((item) => item.code && item.code !== "auto")
-    .map((item) => buildLanguage(item.code, item.name));
+  return withShowcaseLanguages(
+    items
+      .filter((item) => item.code && item.code !== "auto")
+      .map((item) => buildLanguage(item.code, item.name)),
+  );
 }
