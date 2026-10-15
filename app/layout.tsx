@@ -14,12 +14,11 @@ export const metadata: Metadata = {
     "Build intelligent voice and language experiences with ebma AI. Speech to text, text to speech, and conversational AI.",
   icons: {
     icon: [
-      { url: "/favicon.ico", sizes: "any" },
-      { url: "/favicon.png", type: "image/png", sizes: "256x256" },
-      { url: "/ebma-icon.png", type: "image/png", sizes: "512x512" },
+      { url: "/favicon.ico?v=4", type: "image/x-icon", sizes: "64x64" },
+      { url: "/favicon-transparent.png?v=4", type: "image/png", sizes: "256x256" },
     ],
-    apple: "/ebma-icon.png",
-    shortcut: "/favicon.ico",
+    apple: "/favicon-transparent.png?v=4",
+    shortcut: "/favicon.ico?v=4",
   },
 };
 
