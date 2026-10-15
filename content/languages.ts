@@ -46,6 +46,7 @@ const LANGUAGE_INITIALS: Record<string, string> = {
   ko: "가",
   ru: "А",
   pt: "A",
+  th: "ก",
 };
 
 /** Native sample phrases for interactive honeycomb preview. */
@@ -86,6 +87,7 @@ const LANGUAGE_SAMPLES: Record<string, string> = {
   ko: "안녕하세요",
   ru: "Привет",
   pt: "Olá",
+  th: "สวัสดี",
 };
 
 /**
@@ -123,6 +125,7 @@ export const showcaseLanguages: SupportedLanguage[] = [
   buildLanguage("ko", "Korean"),
   buildLanguage("ru", "Russian"),
   buildLanguage("pt", "Portuguese"),
+  buildLanguage("th", "Thai"),
 ];
 
 export const supportedLanguages: SupportedLanguage[] = [
