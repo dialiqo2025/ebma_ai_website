@@ -90,6 +90,11 @@
   }
 }
 
+.languages-hex-face {
+  clip-path: polygon(25% 6%, 75% 6%, 100% 50%, 75% 94%, 25% 94%, 0% 50%);
+}
+
+
 /* Match portal primary button fill (solid brand primary). */
 .bg-brand-gradient {
   background-color: var(--color-brand-a);

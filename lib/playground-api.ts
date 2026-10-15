@@ -78,6 +78,21 @@ export async function fetchPlaygroundStatus(api: PlaygroundApi): Promise<Playgro
   return payload.data;
 }
 
+export type PlaygroundLanguage = {
+  code: string;
+  name: string;
+};
+
+/** Public STT language catalog (no auth). */
+export async function fetchPlaygroundLanguages(): Promise<PlaygroundLanguage[]> {
+  const response = await fetch(`${API_BASE_URL}/playground/languages`, {
+    method: "GET",
+    credentials: "omit",
+  });
+  const payload = await parseJson<{ languages: PlaygroundLanguage[] }>(response);
+  return payload.data.languages ?? [];
+}
+
 export async function runPlaygroundTts(input: {
   text: string;
   language?: string;

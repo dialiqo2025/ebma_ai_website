@@ -3,7 +3,6 @@
 import Link from "next/link";
 import {
   ArrowRight,
-  AudioLines,
   Blocks,
   Bot,
   Braces,
@@ -11,9 +10,7 @@ import {
   ChevronRight,
   CirclePlay,
   Code2,
-  Globe2,
   Headphones,
-  Languages,
   MessageSquareText,
   Mic2,
   MoveRight,
@@ -25,6 +22,7 @@ import {
 } from "lucide-react";
 import { Brand } from "./brand";
 import { DevCodePanel } from "@/components/marketing/dev-code-panel";
+import { LanguagesCarousel } from "@/components/marketing/languages-carousel";
 import { SiteHeader } from "@/components/marketing/site-header";
 import { Button } from "./ui/button";
 import {
@@ -151,6 +149,8 @@ export function LandingPage() {
           </div>
 
           <div className="relative z-[2] w-full animate-[fade-up_.8s_ease_both] [animation-delay:150ms] max-[820px]:mx-auto max-[820px]:w-[min(600px,100%)]">
+            <LanguagesCarousel variant="hero" />
+            {/* Hero playground mockup (replaced by languages honeycomb)
             <div className="pointer-events-none absolute inset-x-0 top-[10%] bottom-[10%] rounded-full bg-brand-a opacity-[.22] blur-[100px]" />
             <div className="relative overflow-hidden rounded-[19px] border border-[#d5dbea] bg-white shadow-[0_40px_90px_rgba(18,21,40,.12),inset_0_1px_rgba(255,255,255,.8)] [transform:perspective(1200px)_rotateY(-3deg)_rotateX(1deg)] max-[820px]:[transform:none]">
               <div className="flex h-[52px] items-center justify-between border-b border-[#e2e7f2] bg-[#f8fafc] px-4">
@@ -240,6 +240,7 @@ export function LandingPage() {
             <div className="absolute -right-[19px] top-[84px] flex items-center gap-[7px] rounded-[10px] border border-[#d5dbea] bg-white/95 px-[13px] py-2.5 text-[12px] text-[#121528] shadow-[0_15px_30px_rgba(18,21,40,.1)] max-[560px]:hidden [&_svg]:text-[#6542e8]">
               <Sparkles size={16} /> AI enriched
             </div>
+            */}
           </div>
         </div>
         <div
@@ -270,6 +271,8 @@ export function LandingPage() {
           </div>
         </div>
       </section>
+
+      {/* <LanguagesCarousel /> */}
 
       <section
         className="border-t border-[#d5dbea] bg-bg-deep pt-[90px] max-[820px]:py-[90px]"
