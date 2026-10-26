@@ -1,11 +1,11 @@
 (function () {
   const trimSlash = (value) => value.replace(/\/$/, "");
 
-  const SITE_URL = trimSlash("http://localhost:3001");
-  const PORTAL_URL = trimSlash("http://localhost:3000");
-  const API_BASE_URL = trimSlash("http://localhost:5001/api/v1");
+  const SITE_URL = trimSlash("https://ebma.ai");
+  const PORTAL_URL = trimSlash("https://workspace.ebma.ai");
+  const API_BASE_URL = trimSlash("https://api.ebma.ai/api/v1");
   const DOCS_URL = trimSlash("https://docs.ebma.ai");
-  const supportEmail = "hello@ebma.ai";
+  const supportEmail = "chetan.patel@dialiqo.com";
   const customPricingEmail = supportEmail;
 
   function portalPath(path) {
