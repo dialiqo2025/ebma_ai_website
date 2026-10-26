@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>About | ebma AI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="icon" href="assets/favicon.ico" />
+</head>
+<body style="--font-body: 'Inter', sans-serif; --font-display: 'Space Grotesk', sans-serif;">
+<script src="js/config.js"></script>
+<script src="js/api.js"></script>
+<nav class="fixed inset-x-0 top-0 z-50 h-20 border-b border-black/[0.06] bg-[rgba(247,248,252,.88)] backdrop-blur-[14px] max-[820px]:h-[68px]">
+  <div class="mx-auto w-[min(1180px,calc(100%-48px))] max-[820px]:w-[calc(100%-32px)] relative flex h-full items-center justify-between">
+    <a href="index.html" class="inline-flex w-max items-center" aria-label="ebma.ai home">
+      <img src="assets/ebma-ai-logo-light-mode-transparent.png" alt="ebma.ai" width="160" height="44" class="block h-auto max-h-[44px] w-auto object-contain" />
+    </a>
+
+    <div class="ml-auto mr-9 flex items-center gap-8 max-[1050px]:mr-[18px] max-[1050px]:gap-[19px] max-[820px]:hidden">
+      <div class="relative" data-ebma-products-desktop>
+        <button type="button" data-ebma-products-trigger aria-expanded="false" aria-haspopup="menu" aria-controls="ebma-products-menu-desktop" class="inline-flex items-center gap-1.5 border-0 bg-transparent p-0 text-[13px] font-semibold text-[#5c6478] transition-colors duration-200 hover:text-[#121528]">
+          Products
+          <svg data-ebma-products-chevron class="size-[14px] transition-transform duration-250 ease-out" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+        </button>
+        <div id="ebma-products-menu-desktop" role="menu" data-ebma-products-panel class="absolute top-[calc(100%+14px)] left-1/2 z-30 w-[340px] -translate-x-1/2 origin-top transition-[opacity,transform] duration-250 ease-[cubic-bezier(0.16,1,0.3,1)] pointer-events-none -translate-y-1.5 scale-[0.98] opacity-0">
+          <div class="overflow-hidden rounded-2xl border border-[#d5dbea] bg-white p-2 shadow-[0_24px_60px_rgba(18,21,40,.12)] backdrop-blur-xl">
+            <a href="products/speech-to-text.html" role="menuitem" class="flex items-start gap-3 rounded-xl px-3 py-3 text-[#2a3148] transition-colors duration-200 hover:bg-[#eef1f8]">
+              <span class="mt-0.5 grid h-9 w-9 shrink-0 place-items-center rounded-xl border text-[#0284c7] bg-[rgba(2,132,199,.1)] border-[rgba(2,132,199,.22)]">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" x2="12" y1="19" y2="22"/></svg>
+              </span>
+              <span>
+                <span class="block text-[13px] font-semibold text-[#121528]">Speech to text</span>
+                <span class="mt-0.5 block text-[12px] leading-snug text-[#6b7389]">Live &amp; file transcription with speakers</span>
+              </span>
+            </a>
+            <a href="products/text-to-speech.html" role="menuitem" class="flex items-start gap-3 rounded-xl px-3 py-3 text-[#2a3148] transition-colors duration-200 hover:bg-[#eef1f8]">
+              <span class="mt-0.5 grid h-9 w-9 shrink-0 place-items-center rounded-xl border text-[#6542e8] bg-[rgba(124,58,237,.1)] border-[rgba(124,58,237,.22)]">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/></svg>
+              </span>
+              <span>
+                <span class="block text-[13px] font-semibold text-[#121528]">Text to speech</span>
+                <span class="mt-0.5 block text-[12px] leading-snug text-[#6b7389]">Natural voices, playback, and clone</span>
+              </span>
+            </a>
+            <a href="products/llm.html" role="menuitem" class="flex items-start gap-3 rounded-xl px-3 py-3 text-[#2a3148] transition-colors duration-200 hover:bg-[#eef1f8]">
+              <span class="mt-0.5 grid h-9 w-9 shrink-0 place-items-center rounded-xl border text-[#db2777] bg-[rgba(219,39,119,.1)] border-[rgba(219,39,119,.22)]">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/><path d="M2 14h2"/><path d="M20 14h2"/><path d="M15 13v2"/><path d="M9 13v2"/></svg>
+              </span>
+              <span>
+                <span class="block text-[13px] font-semibold text-[#121528]">LLM Studio</span>
+                <span class="mt-0.5 block text-[12px] leading-snug text-[#6b7389]">Context-aware language intelligence</span>
+              </span>
+            </a>
+          </div>
+        </div>
+      </div>
+      <a href="pricing.html" class="text-[13px] font-semibold text-[#5c6478] transition-colors duration-200 hover:text-[#121528]">Pricing</a>
+      <a data-ebma-href="DOCS_URL" href="https://docs.ebma.ai" target="_blank" rel="noreferrer" class="text-[13px] font-semibold text-[#5c6478] transition-colors duration-200 hover:text-[#121528]">Developers</a>
+      <a href="contact.html" class="text-[13px] font-semibold text-[#5c6478] transition-colors duration-200 hover:text-[#121528]">Contact us</a>
+    </div>
+
+    <div class="flex items-center gap-[13px] max-[820px]:hidden">
+      <div data-ebma-portal-auth="in" class="hidden">
+        <a data-ebma-href="portalDashboardUrl" href="#" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 rounded-[11px] min-h-[42px] px-[18px] text-[13px] font-bold cursor-pointer transition duration-[250ms] whitespace-nowrap hover:-translate-y-px border-0 text-white bg-brand-gradient shadow-[0_9px_28px_rgba(101,66,232,.25),inset_0_1px_rgba(255,255,255,.15)] hover:shadow-[0_12px_34px_rgba(101,66,232,.4),inset_0_1px_rgba(255,255,255,.2)]">
+          Go to dashboard
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+        </a>
+      </div>
+      <div data-ebma-portal-auth="out" class="flex items-center gap-[13px]">
+        <a data-ebma-href="portalLoginUrl" href="#" target="_blank" rel="noopener noreferrer" class="px-2.5 py-2.5 text-[13px] font-[650] text-[#5c6478] transition-colors hover:text-[#121528]">Log in</a>
+        <a data-ebma-href="portalSignupUrl" href="#" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 rounded-[11px] min-h-[42px] px-[18px] text-[13px] font-bold cursor-pointer transition duration-[250ms] whitespace-nowrap hover:-translate-y-px border-0 text-white bg-brand-gradient shadow-[0_9px_28px_rgba(101,66,232,.25),inset_0_1px_rgba(255,255,255,.15)] hover:shadow-[0_12px_34px_rgba(101,66,232,.4),inset_0_1px_rgba(255,255,255,.2)]">
+          Start building
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <button type="button" data-ebma-menu-toggle aria-label="Toggle menu" aria-expanded="false" class="hidden max-[820px]:absolute max-[820px]:right-0 max-[820px]:grid max-[820px]:h-[39px] max-[820px]:w-[39px] max-[820px]:place-items-center max-[820px]:rounded-[10px] max-[820px]:border max-[820px]:border-border max-[820px]:bg-surface max-[820px]:text-[#2a3148] max-[820px]:block">
+      <svg data-ebma-menu-icon-open xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+    </button>
+
+    <div data-ebma-mobile-menu class="absolute left-0 right-0 top-[75px] z-30 origin-top rounded-[14px] border border-border bg-white p-3 shadow-[0_20px_50px_rgba(18,21,40,.12)] transition-[opacity,transform] duration-250 ease-[cubic-bezier(0.16,1,0.3,1)] hidden max-[820px]:block pointer-events-none -translate-y-2 scale-[0.98] opacity-0">
+      <div class="w-full" data-ebma-products-mobile>
+        <button type="button" data-ebma-products-mobile-trigger aria-expanded="false" aria-controls="ebma-products-menu-mobile" class="flex w-full items-center justify-between px-[13px] py-[13px] text-left text-[13px] font-semibold text-[#5c6478]">
+          Products
+          <svg data-ebma-products-mobile-chevron xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transition-transform duration-250 ease-out" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+        </button>
+        <div id="ebma-products-menu-mobile" data-ebma-products-mobile-panel class="grid overflow-hidden transition-[grid-template-rows,opacity] duration-300 ease-out grid-rows-[0fr] opacity-0">
+          <div class="min-h-0">
+            <div class="mb-2 space-y-1 px-2 pb-2">
+              <a href="products/speech-to-text.html" class="flex items-start gap-3 rounded-xl px-3 py-2.5 text-[#2a3148] transition-colors hover:bg-[#eef1f8]">
+                <span class="mt-0.5 grid h-8 w-8 shrink-0 place-items-center rounded-lg border text-[#0284c7] bg-[rgba(2,132,199,.1)] border-[rgba(2,132,199,.22)]">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" x2="12" y1="19" y2="22"/></svg>
+                </span>
+                <span>
+                  <span class="block text-[13px] font-semibold text-[#121528]">Speech to text</span>
+                  <span class="mt-0.5 block text-[11px] text-[#6b7389]">Live &amp; file transcription with speakers</span>
+                </span>
+              </a>
+              <a href="products/text-to-speech.html" class="flex items-start gap-3 rounded-xl px-3 py-2.5 text-[#2a3148] transition-colors hover:bg-[#eef1f8]">
+                <span class="mt-0.5 grid h-8 w-8 shrink-0 place-items-center rounded-lg border text-[#6542e8] bg-[rgba(124,58,237,.1)] border-[rgba(124,58,237,.22)]">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
+                </span>
+                <span>
+                  <span class="block text-[13px] font-semibold text-[#121528]">Text to speech</span>
+                  <span class="mt-0.5 block text-[11px] text-[#6b7389]">Natural voices, playback, and clone</span>
+                </span>
+              </a>
+              <a href="products/llm.html" class="flex items-start gap-3 rounded-xl px-3 py-2.5 text-[#2a3148] transition-colors hover:bg-[#eef1f8]">
+                <span class="mt-0.5 grid h-8 w-8 shrink-0 place-items-center rounded-lg border text-[#db2777] bg-[rgba(219,39,119,.1)] border-[rgba(219,39,119,.22)]">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/></svg>
+                </span>
+                <span>
+                  <span class="block text-[13px] font-semibold text-[#121528]">LLM Studio</span>
+                  <span class="mt-0.5 block text-[11px] text-[#6b7389]">Context-aware language intelligence</span>
+                </span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <a href="pricing.html" class="block px-[13px] py-[13px] text-[13px] font-semibold text-[#5c6478] transition-colors hover:text-[#121528]">Pricing</a>
+      <a data-ebma-href="DOCS_URL" href="https://docs.ebma.ai" target="_blank" rel="noreferrer" class="block px-[13px] py-[13px] text-[13px] font-semibold text-[#5c6478] transition-colors hover:text-[#121528]">Developers</a>
+      <a href="contact.html" class="block px-[13px] py-[13px] text-[13px] font-semibold text-[#5c6478] transition-colors hover:text-[#121528]">Contact us</a>
+      <div class="mt-2 gap-2 grid grid-cols-[1fr_1.3fr]" data-ebma-portal-auth="out">
+        <a data-ebma-href="portalLoginUrl" href="#" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 rounded-[11px] min-h-[42px] px-[18px] text-[13px] font-bold border border-border bg-transparent text-text">Log in</a>
+        <a data-ebma-href="portalSignupUrl" href="#" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 rounded-[11px] min-h-[42px] px-[18px] text-[13px] font-bold border-0 text-white bg-brand-gradient">Start building</a>
+      </div>
+      <div class="mt-2 hidden grid grid-cols-1" data-ebma-portal-auth="in">
+        <a data-ebma-href="portalDashboardUrl" href="#" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 rounded-[11px] min-h-[42px] px-[18px] text-[13px] font-bold border-0 text-white bg-brand-gradient">Go to dashboard</a>
+      </div>
+    </div>
+  </div>
+  <button type="button" data-ebma-menu-overlay aria-label="Close menu" class="fixed inset-0 z-10 hidden border-0 bg-[rgba(18,21,40,.25)] max-[820px]:block"></button>
+</nav>
+
+<main class="overflow-hidden bg-[#f7f8fc]">
+  <section class="relative pt-20 max-[820px]:pt-[68px]">
+    <div class="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_17%_17%,rgba(101,66,232,.18),transparent_31%),radial-gradient(circle_at_90%_22%,rgba(219,39,119,.08),transparent_25%)]"></div>
+    <div class="mx-auto w-[min(1180px,calc(100%-48px))] max-[820px]:w-[calc(100%-32px)] relative grid min-h-[610px] grid-cols-[1.02fr_.98fr] items-center gap-16 py-[80px] max-[900px]:grid-cols-1 max-[900px]:gap-10 max-[820px]:min-h-0 max-[820px]:py-[58px]">
+      <div>
+        <div class="inline-flex items-center gap-2 rounded-full border border-[rgba(101,66,232,.24)] bg-white/75 px-3 py-2 text-[11px] font-extrabold uppercase tracking-[0.12em] text-[#6542e8] shadow-[0_6px_24px_rgba(61,45,128,.06)]">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></svg>
+          About ebma AI
+        </div>
+        <h1 class="mt-6 max-w-[700px] font-heading text-[clamp(46px,6.2vw,78px)] font-semibold leading-[.98] tracking-[-0.062em] text-[#121528]">
+          Intelligence that
+          <span class="bg-[linear-gradient(100deg,#6542e8,#a75fda_75%)] bg-clip-text text-transparent"> speaks human.</span>
+        </h1>
+        <p class="mt-7 max-w-[650px] text-[17px] leading-[1.78] text-[#5c6478]">
+          ebma AI builds the voice and language layer for modern products—so teams can listen, speak, understand, and respond with technology that feels useful in the real world.
+        </p>
+        <div class="mt-8 flex flex-wrap gap-3">
+          <a data-ebma-href="portalSignupUrl" href="#" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 rounded-[14px] min-h-[52px] px-6 text-sm font-bold border-0 text-white bg-brand-gradient shadow-[0_9px_28px_rgba(101,66,232,.25),inset_0_1px_rgba(255,255,255,.15)] hover:-translate-y-px transition duration-[250ms]">
+            Start building
+            <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+          </a>
+          <a href="contact.html?topic=general" class="inline-flex items-center justify-center gap-2 rounded-[14px] min-h-[52px] px-6 text-sm font-bold border border-border bg-surface text-text shadow-[0_1px_2px_rgba(18,21,40,.04)] hover:-translate-y-px transition duration-[250ms]">Talk to us</a>
+        </div>
+      </div>
+      <div class="relative mx-auto w-full max-w-[480px]">
+        <div class="absolute -inset-8 rounded-full bg-[radial-gradient(circle,rgba(101,66,232,.16),transparent_68%)] blur-2xl"></div>
+        <div class="relative overflow-hidden rounded-[30px] border border-[#d9d2ef] bg-[#17152c] p-8 text-white shadow-[0_34px_90px_rgba(47,34,104,.25)] max-[560px]:p-6">
+          <div class="flex items-center justify-between">
+            <span class="text-[10px] font-extrabold uppercase tracking-[0.15em] text-[#c8bcf8]">One intelligence layer</span>
+            <span class="size-2 rounded-full bg-[#52d6a3] shadow-[0_0_0_5px_rgba(82,214,163,.12)]"></span>
+          </div>
+          <div class="my-9 flex h-[120px] items-center justify-center gap-1.5" aria-hidden="true">
+            <span class="w-2 rounded-full bg-[linear-gradient(180deg,#b7a5ff,#6f4feb)]" style="height:22px"></span>
+            <span class="w-2 rounded-full bg-[linear-gradient(180deg,#b7a5ff,#6f4feb)]" style="height:44px"></span>
+            <span class="w-2 rounded-full bg-[linear-gradient(180deg,#b7a5ff,#6f4feb)]" style="height:72px"></span>
+            <span class="w-2 rounded-full bg-[linear-gradient(180deg,#b7a5ff,#6f4feb)]" style="height:50px"></span>
+            <span class="w-2 rounded-full bg-[linear-gradient(180deg,#b7a5ff,#6f4feb)]" style="height:92px"></span>
+            <span class="w-2 rounded-full bg-[linear-gradient(180deg,#b7a5ff,#6f4feb)]" style="height:62px"></span>
+            <span class="w-2 rounded-full bg-[linear-gradient(180deg,#b7a5ff,#6f4feb)]" style="height:35px"></span>
+            <span class="w-2 rounded-full bg-[linear-gradient(180deg,#b7a5ff,#6f4feb)]" style="height:78px"></span>
+            <span class="w-2 rounded-full bg-[linear-gradient(180deg,#b7a5ff,#6f4feb)]" style="height:106px"></span>
+            <span class="w-2 rounded-full bg-[linear-gradient(180deg,#b7a5ff,#6f4feb)]" style="height:67px"></span>
+            <span class="w-2 rounded-full bg-[linear-gradient(180deg,#b7a5ff,#6f4feb)]" style="height:46px"></span>
+            <span class="w-2 rounded-full bg-[linear-gradient(180deg,#b7a5ff,#6f4feb)]" style="height:89px"></span>
+            <span class="w-2 rounded-full bg-[linear-gradient(180deg,#b7a5ff,#6f4feb)]" style="height:58px"></span>
+            <span class="w-2 rounded-full bg-[linear-gradient(180deg,#b7a5ff,#6f4feb)]" style="height:29px"></span>
+            <span class="w-2 rounded-full bg-[linear-gradient(180deg,#b7a5ff,#6f4feb)]" style="height:69px"></span>
+            <span class="w-2 rounded-full bg-[linear-gradient(180deg,#b7a5ff,#6f4feb)]" style="height:41px"></span>
+            <span class="w-2 rounded-full bg-[linear-gradient(180deg,#b7a5ff,#6f4feb)]" style="height:24px"></span>
+          </div>
+          <div class="grid grid-cols-3 gap-2">
+            <div class="rounded-xl border border-white/10 bg-white/[.06] px-3 py-3 text-center">
+              <p class="font-mono text-[9px] text-[#9c91bf]">01</p>
+              <p class="mt-1 text-[11px] font-bold text-[#f3efff]">Listen</p>
+            </div>
+            <div class="rounded-xl border border-white/10 bg-white/[.06] px-3 py-3 text-center">
+              <p class="font-mono text-[9px] text-[#9c91bf]">02</p>
+              <p class="mt-1 text-[11px] font-bold text-[#f3efff]">Speak</p>
+            </div>
+            <div class="rounded-xl border border-white/10 bg-white/[.06] px-3 py-3 text-center">
+              <p class="font-mono text-[9px] text-[#9c91bf]">03</p>
+              <p class="mt-1 text-[11px] font-bold text-[#f3efff]">Understand</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="border-y border-[#e0dbea] bg-white">
+    <div class="mx-auto w-[min(1180px,calc(100%-48px))] max-[820px]:w-[calc(100%-32px)] py-[86px] max-[820px]:py-[60px]">
+      <div class="max-w-[690px]">
+        <p class="text-[11px] font-extrabold uppercase tracking-[0.13em] text-[#6542e8]">What we are building</p>
+        <h2 class="mt-4 font-heading text-[clamp(34px,4.8vw,54px)] font-semibold leading-[1.08] tracking-[-0.05em] text-[#15172b]">From raw language to useful action.</h2>
+        <p class="mt-5 text-[15px] leading-[1.75] text-[#687086]">A connected platform for developers and businesses that need speech and language capabilities without stitching together a fragmented workflow.</p>
+      </div>
+      <div class="mt-11 grid grid-cols-3 gap-4 max-[850px]:grid-cols-1">
+        <a href="products/speech-to-text.html" class="group rounded-[22px] border border-[#e1ddeb] bg-[#fbfbfd] p-6 transition duration-300 hover:-translate-y-1 hover:border-[#cfc5ed] hover:shadow-[0_18px_45px_rgba(41,34,79,.09)]">
+          <span class="grid size-11 place-items-center rounded-[13px] text-[#0284c7]" style="background:#eaf7fd">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" x2="12" y1="19" y2="22"/></svg>
+          </span>
+          <p class="mt-6 text-[10px] font-extrabold uppercase tracking-[0.13em] text-[#0284c7]">Speech to text</p>
+          <h3 class="mt-2 font-heading text-[21px] font-semibold leading-[1.2] tracking-[-0.03em] text-[#17192d]">Make every conversation usable.</h3>
+          <p class="mt-3 text-[13px] leading-[1.7] text-[#71798e]">Transform live and recorded speech into structured text for products, operations, and customer experiences.</p>
+          <span class="mt-6 inline-flex items-center gap-1.5 text-[12px] font-bold text-[#514176]">Explore product <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="transition group-hover:translate-x-1" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
+        </a>
+        <a href="products/text-to-speech.html" class="group rounded-[22px] border border-[#e1ddeb] bg-[#fbfbfd] p-6 transition duration-300 hover:-translate-y-1 hover:border-[#cfc5ed] hover:shadow-[0_18px_45px_rgba(41,34,79,.09)]">
+          <span class="grid size-11 place-items-center rounded-[13px] text-[#6542e8]" style="background:#f1edff">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
+          </span>
+          <p class="mt-6 text-[10px] font-extrabold uppercase tracking-[0.13em] text-[#6542e8]">Text to speech</p>
+          <h3 class="mt-2 font-heading text-[21px] font-semibold leading-[1.2] tracking-[-0.03em] text-[#17192d]">Give products a natural voice.</h3>
+          <p class="mt-3 text-[13px] leading-[1.7] text-[#71798e]">Turn written content into expressive speech designed for responsive, human-feeling experiences.</p>
+          <span class="mt-6 inline-flex items-center gap-1.5 text-[12px] font-bold text-[#514176]">Explore product <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="transition group-hover:translate-x-1" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
+        </a>
+        <a href="products/llm.html" class="group rounded-[22px] border border-[#e1ddeb] bg-[#fbfbfd] p-6 transition duration-300 hover:-translate-y-1 hover:border-[#cfc5ed] hover:shadow-[0_18px_45px_rgba(41,34,79,.09)]">
+          <span class="grid size-11 place-items-center rounded-[13px] text-[#c02678]" style="background:#fff0f7">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/></svg>
+          </span>
+          <p class="mt-6 text-[10px] font-extrabold uppercase tracking-[0.13em] text-[#c02678]">LLM assistance</p>
+          <h3 class="mt-2 font-heading text-[21px] font-semibold leading-[1.2] tracking-[-0.03em] text-[#17192d]">Bring context to every answer.</h3>
+          <p class="mt-3 text-[13px] leading-[1.7] text-[#71798e]">Build language experiences that can understand requests, work with context, and support real workflows.</p>
+          <span class="mt-6 inline-flex items-center gap-1.5 text-[12px] font-bold text-[#514176]">Explore product <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="transition group-hover:translate-x-1" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="mx-auto w-[min(1180px,calc(100%-48px))] max-[820px]:w-[calc(100%-32px)] grid grid-cols-[.75fr_1.25fr] gap-20 py-[92px] max-[900px]:grid-cols-1 max-[900px]:gap-10 max-[820px]:py-[62px]">
+    <div>
+      <p class="text-[11px] font-extrabold uppercase tracking-[0.13em] text-[#6542e8]">How we think</p>
+      <h2 class="mt-4 font-heading text-[clamp(34px,4vw,49px)] font-semibold leading-[1.08] tracking-[-0.05em] text-[#15172b]">Built with a point of view.</h2>
+      <p class="mt-5 text-[14px] leading-[1.75] text-[#6b7389]">Our choices are guided by the people using the product, the builders integrating it, and the responsibility that comes with AI-powered voice.</p>
+    </div>
+    <div class="grid gap-3">
+      <div class="grid grid-cols-[48px_1fr_auto] items-center gap-5 rounded-[20px] border border-[#dfdaeb] bg-white p-5 max-[560px]:grid-cols-[42px_1fr]">
+        <span class="grid size-12 place-items-center rounded-[14px] bg-[#f1edff] text-[#6542e8] max-[560px]:size-10"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m5 8 6 6"/><path d="m4 14 6-6 2-3"/><path d="M2 5h12"/><path d="M7 2h1"/><path d="m22 22-5-10-5 10"/><path d="M14 18h6"/></svg></span>
+        <div>
+          <h3 class="font-heading text-[18px] font-semibold tracking-[-0.025em] text-[#17192d]">Language should widen access</h3>
+          <p class="mt-1.5 text-[12px] leading-[1.65] text-[#747c90]">People should be able to use technology in the language and interaction style that feels natural to them.</p>
+        </div>
+        <span class="font-mono text-[11px] text-[#aaa3bb] max-[560px]:hidden">01</span>
+      </div>
+      <div class="grid grid-cols-[48px_1fr_auto] items-center gap-5 rounded-[20px] border border-[#dfdaeb] bg-white p-5 max-[560px]:grid-cols-[42px_1fr]">
+        <span class="grid size-12 place-items-center rounded-[14px] bg-[#f1edff] text-[#6542e8] max-[560px]:size-10"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m18 16 4-4-4-4"/><path d="m6 8-4 4 4 4"/><path d="m14.5 4-5 16"/></svg></span>
+        <div>
+          <h3 class="font-heading text-[18px] font-semibold tracking-[-0.025em] text-[#17192d]">Powerful should still be practical</h3>
+          <p class="mt-1.5 text-[12px] leading-[1.65] text-[#747c90]">Clear APIs, transparent usage, and production-minded tools matter as much as model capability.</p>
+        </div>
+        <span class="font-mono text-[11px] text-[#aaa3bb] max-[560px]:hidden">02</span>
+      </div>
+      <div class="grid grid-cols-[48px_1fr_auto] items-center gap-5 rounded-[20px] border border-[#dfdaeb] bg-white p-5 max-[560px]:grid-cols-[42px_1fr]">
+        <span class="grid size-12 place-items-center rounded-[14px] bg-[#f1edff] text-[#6542e8] max-[560px]:size-10"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M2 10v3"/><path d="M6 6v11"/><path d="M10 3v18"/><path d="M14 8v7"/><path d="M18 5v13"/><path d="M22 10v3"/></svg></span>
+        <div>
+          <h3 class="font-heading text-[18px] font-semibold tracking-[-0.025em] text-[#17192d]">Trust is a product decision</h3>
+          <p class="mt-1.5 text-[12px] leading-[1.65] text-[#747c90]">Responsible voice use, privacy-aware design, and honest product communication belong in the experience from day one.</p>
+        </div>
+        <span class="font-mono text-[11px] text-[#aaa3bb] max-[560px]:hidden">03</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-[#17152c] text-white">
+    <div class="mx-auto w-[min(1180px,calc(100%-48px))] max-[820px]:w-[calc(100%-32px)] flex items-center justify-between gap-12 py-[72px] max-[740px]:flex-col max-[740px]:items-start">
+      <div class="max-w-[680px]">
+        <p class="text-[11px] font-extrabold uppercase tracking-[0.13em] text-[#b7a5ff]">Build what comes next</p>
+        <h2 class="mt-3 font-heading text-[clamp(30px,4vw,48px)] font-semibold tracking-[-0.045em]">Your product already has something to say.</h2>
+        <p class="mt-4 text-[14px] leading-[1.7] text-[#bdb8d2]">Give it the voice, understanding, and language layer to say it well.</p>
+      </div>
+      <a data-ebma-href="portalSignupUrl" href="#" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 rounded-[14px] min-h-[52px] px-6 text-sm font-bold border-0 bg-white text-[#4d32c8] hover:-translate-y-px transition duration-[250ms]">
+        Start building
+        <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+      </a>
+    </div>
+  </section>
+</main>
+<footer class="bg-[#e8ecf4]">
+  <div class="mx-auto w-[min(1180px,calc(100%-48px))] max-[820px]:w-[calc(100%-32px)] flex justify-between py-[55px] pb-[55px] max-[820px]:gap-[50px] max-[560px]:block max-[560px]:py-[55px]">
+    <div>
+      <a href="index.html" class="inline-flex w-max items-center" aria-label="ebma.ai home">
+        <img src="assets/ebma-ai-logo-light-mode-transparent.png" alt="ebma.ai" width="160" height="44" class="block h-auto max-h-[44px] w-auto object-contain" />
+      </a>
+      <p class="my-[22px] mb-8 text-xs leading-[1.7] text-[#6b7389]">
+        Voice and language intelligence<br />
+        for every product and person.
+      </p>
+      <span class="text-[12px] uppercase tracking-[0.1em] text-[#8a92a8]">Made with purpose in India.</span>
+    </div>
+    <div class="flex gap-20 max-[1050px]:gap-[45px] max-[820px]:gap-[30px] max-[560px]:mt-[45px] max-[560px]:grid max-[560px]:grid-cols-2 max-[560px]:gap-[35px]">
+      <div class="flex flex-col gap-[13px]">
+        <strong class="mb-[5px] text-[12px] uppercase tracking-[0.1em] text-[#5c6478]">Products</strong>
+        <a href="products/speech-to-text.html" class="text-[12px] text-[#6b7389] hover:text-[#121528]">Speech to text</a>
+        <a href="products/text-to-speech.html" class="text-[12px] text-[#6b7389] hover:text-[#121528]">Text to speech</a>
+        <a href="products/llm.html" class="text-[12px] text-[#6b7389] hover:text-[#121528]">LLM Studio</a>
+      </div>
+      <div class="flex flex-col gap-[13px]">
+        <strong class="mb-[5px] text-[12px] uppercase tracking-[0.1em] text-[#5c6478]">Developers</strong>
+        <a href="pricing.html" class="text-[12px] text-[#6b7389] hover:text-[#121528]">Pricing</a>
+        <a data-ebma-href="DOCS_URL" href="https://docs.ebma.ai" target="_blank" rel="noreferrer" class="text-[12px] text-[#6b7389] hover:text-[#121528]">Documentation</a>
+        <a data-ebma-href="portalPlatformUrl" href="#" class="text-[12px] text-[#6b7389] hover:text-[#121528]">Playground</a>
+      </div>
+      <div class="flex flex-col gap-[13px]">
+        <strong class="mb-[5px] text-[12px] uppercase tracking-[0.1em] text-[#5c6478]">Company</strong>
+        <a href="contact.html" class="text-[12px] text-[#6b7389] hover:text-[#121528]">Contact</a>
+        <a href="about.html" class="text-[12px] text-[#6b7389] hover:text-[#121528]">About</a>
+        <a href="careers.html" class="text-[12px] text-[#6b7389] hover:text-[#121528]">Careers</a>
+      </div>
+    </div>
+  </div>
+  <div class="mx-auto w-[min(1180px,calc(100%-48px))] max-[820px]:w-[calc(100%-32px)] flex h-[66px] items-center justify-between border-t border-[#d5dbea] text-[12px] text-[#8a92a8] max-[560px]:h-[85px] max-[560px]:flex-col max-[560px]:justify-center max-[560px]:gap-2.5">
+    <span>© <span data-ebma-year>2026</span> ebma AI. All rights reserved.</span>
+    <div class="flex gap-5">
+      <a href="privacy.html" class="hover:text-[#121528]">Privacy Policy</a>
+      <a href="terms.html" class="hover:text-[#121528]">Terms &amp; Conditions</a>
+      <a href="security.html" class="hover:text-[#121528]">Security</a>
+    </div>
+  </div>
+</footer>
+
+<script src="js/site.js"></script>
+</body>
+</html>

@@ -9,6 +9,9 @@ export type PublicPricing = {
     ttsCreditsPer1000Chars: number;
     sttCreditsPerMinute: number;
     llmCreditsPer1000Tokens: number;
+    tts?: { credits: number; chars: number };
+    stt?: { credits: number; minutes: number };
+    llm?: { credits: number; tokens: number };
   };
 };
 

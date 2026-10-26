@@ -1,0 +1,13 @@
+{
+  "name": "ebma-marketing-static",
+  "private": true,
+  "scripts": {
+    "build:css": "npx @tailwindcss/cli -i ./css/input.css -o ./css/styles.css --minify",
+    "build": "node scripts/assemble.mjs && npm run build:css",
+    "dev:css": "npx @tailwindcss/cli -i ./css/input.css -o ./css/styles.css --watch"
+  },
+  "devDependencies": {
+    "@tailwindcss/cli": "latest",
+    "tailwindcss": "latest"
+  }
+}

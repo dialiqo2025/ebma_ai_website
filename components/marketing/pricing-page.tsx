@@ -58,10 +58,44 @@ function formatCredits(value: number) {
   return value.toLocaleString(undefined, { maximumFractionDigits: 6 });
 }
 
-function serviceRate(pricing: PublicPricing, service: UsageService) {
-  if (service === "stt") return pricing.rates.sttCreditsPerMinute;
-  if (service === "tts") return pricing.rates.ttsCreditsPer1000Chars;
-  return pricing.rates.llmCreditsPer1000Tokens;
+function serviceRateDisplay(pricing: PublicPricing, service: UsageService) {
+  if (service === "tts") {
+    const pair = pricing.rates.tts;
+    if (pair) {
+      return {
+        credits: pair.credits,
+        unit: `/ ${pair.chars.toLocaleString()} characters`,
+      };
+    }
+    return {
+      credits: pricing.rates.ttsCreditsPer1000Chars,
+      unit: "/ 1,000 characters",
+    };
+  }
+  if (service === "stt") {
+    const pair = pricing.rates.stt;
+    if (pair) {
+      return {
+        credits: pair.credits,
+        unit:
+          pair.minutes === 1
+            ? "/ minute"
+            : `/ ${pair.minutes.toLocaleString()} minutes`,
+      };
+    }
+    return { credits: pricing.rates.sttCreditsPerMinute, unit: "/ minute" };
+  }
+  const pair = pricing.rates.llm;
+  if (pair) {
+    return {
+      credits: pair.credits,
+      unit: `/ ${pair.tokens.toLocaleString()} tokens`,
+    };
+  }
+  return {
+    credits: pricing.rates.llmCreditsPer1000Tokens,
+    unit: "/ 1,000 tokens",
+  };
 }
 
 export function PricingPage() {
@@ -251,7 +285,7 @@ export function PricingPage() {
             {usageClassifications.map((item, index) => {
               const style = serviceStyles[item.service];
               const Icon = style.icon;
-              const rate = pricing ? serviceRate(pricing, item.service) : null;
+              const rate = pricing ? serviceRateDisplay(pricing, item.service) : null;
               return (
                 <article
                   key={item.service}
@@ -292,13 +326,13 @@ export function PricingPage() {
                     </p>
                     <p className="mt-2 font-heading text-[24px] font-semibold tracking-[-0.03em] text-[#121528]">
                       {rate !== null
-                        ? `${formatCredits(rate)} ${rate === 1 ? "credit" : "credits"}`
+                        ? `${formatCredits(rate.credits)} ${rate.credits === 1 ? "credit" : "credits"}`
                         : pricingError
                           ? "View in portal"
                           : "Loading…"}
                     </p>
                     <p className="mt-0.5 text-[12px] font-semibold text-[#6542e8]">
-                      {item.rateUnit}
+                      {rate?.unit ?? item.rateUnit}
                     </p>
                   </div>
                   <div className="relative mt-4 flex items-center justify-between gap-3 border-t border-[#e7eaf2] pt-4 text-[11px]">
